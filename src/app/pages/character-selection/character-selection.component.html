@@ -1,0 +1,92 @@
+<div class="content" role="main">
+
+    <!-- Highlight Card -->
+    <div class="titleCard">
+
+        <span>{{ title }}</span>
+
+    </div>
+
+    <!-- Resources -->
+    <h2>CHOOSE YOUR CHARACTER</h2>
+
+    <input type="hidden" #selection>
+
+    <div class="card-container">
+        <div class="characterGroup">
+            <img src="assets/DiosSol.png" width="200" center>
+            <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
+                <span>Dios Sol</span>
+            </button>
+        </div>
+        <div class="characterGroup">
+            <img src="assets/DiosMuerte.png" width="200" center>
+            <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
+                <span>Dios de la Muerte</span>
+            </button>
+        </div>
+        <div class="characterGroup">
+            <img src="assets/DiosaLuna.png" width="200" center>
+            <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
+                <span>Diosa Luna</span>
+            </button>
+        </div>
+        <div class="characterGroup">
+            <img src="assets/DiosaTierra.png" width="200" center>
+            <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
+                <span>Diosa Tierra</span>
+            </button>
+        </div>
+        <div class="characterGroup">
+            <img src="assets/CreadorUniverso.png" width="200" center>
+            <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
+                <span>Creador del Universo</span>
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<fieldset>
+    <h2 style="text-align: center;">DETAILS</h2>
+    <div class="detail">
+        <div class="detail">
+            <div class="column">
+                <h3>Race:</h3>
+                <h3>Profession:</h3>
+                <h3>Equipment:</h3>
+            </div>
+            <div class="column2">
+                <h3>Race 01</h3>
+                <h3>Profession 01</h3>
+                <h3>Equipment 01</h3>
+            </div>
+        </div>
+        <div class="detail">
+            <div class="column">
+                <h3>Strength:</h3>
+                <h3>Intelligence:</h3>
+                <h3>Dexterty:</h3>
+                <h3>Charisma:</h3>
+                <h3>Wisdom:</h3>
+                <h3>Constitution:</h3>
+            </div>
+            <div class="colum2">
+                <h3>2</h3>
+                <h3>5</h3>
+                <h3>4</h3>
+                <h3>5</h3>
+                <h3>4</h3>
+                <h3>5</h3>
+            </div>
+        </div>
+    </div>
+
+</fieldset>
+<input type="hidden" #selection>
+<div class="buttonG">
+    <button mat-button class="next">NEXT</button>
+</div>
+
+
+<router-outlet></router-outlet>
