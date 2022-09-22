@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CharacterSelectionService } from 'src/app/shared/services/character-selection.service';
 
 @Component({
   selector: 'app-character-selection',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharacterSelectionComponent implements OnInit {
   title = 'INCA EMPIRE ADVENTURES';
-  constructor() { }
+  constructor(
+    private characterSelectionService: CharacterSelectionService
+  ) { }
 
   ngOnInit(): void {
+    this.getAllCharacters();
+
+  }
+
+  private getAllCharacters() {
+    this.characterSelectionService.getAllCharacters("")
   }
 
 }
