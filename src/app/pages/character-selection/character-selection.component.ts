@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Character } from 'src/app/shared/model/character';
 import { CharacterSelectionService } from 'src/app/shared/services/character-selection.service';
 
 @Component({
@@ -14,11 +15,14 @@ export class CharacterSelectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCharacters();
-
   }
 
   private getAllCharacters() {
-    this.characterSelectionService.getAllCharacters("")
+    this.characterSelectionService.getAllCharacters("").subscribe(
+      res => {
+        let data: Character[] = res;
+      }
+    )
   }
 
 }
