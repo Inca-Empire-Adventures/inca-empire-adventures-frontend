@@ -26,7 +26,7 @@ export class CharacterSelectionComponent implements OnInit {
     private characterSelectionService: CharacterSelectionService
   ) {
     this.images = [
-      'null',
+      'asd',
       'assets/DiosSol.png',
       'assets/DiosMuerte.png',
       'assets/DiosaLuna.png',
@@ -49,9 +49,9 @@ export class CharacterSelectionComponent implements OnInit {
     )
   }
   getCharacterN(id: number) {
+    this.race = this.characters[id-1].race.name;
+    this.profession = this.characters[id-1].profession.name;
     if (id == 1) {
-      this.race = "Dwarf";
-      this.profession = "Wizard";
       this.equipment = "Fire Cloak";
       this.strength = "3";
       this.intelligence = "5";
@@ -62,8 +62,6 @@ export class CharacterSelectionComponent implements OnInit {
       this.hp = "120";
     }
     if (id == 2) {
-      this.race = "Dragonborn";
-      this.profession = "Rogue";
       this.equipment = "Death Mask";
       this.strength = "5";
       this.intelligence = "5";
@@ -74,8 +72,6 @@ export class CharacterSelectionComponent implements OnInit {
       this.hp = "100";
     }
     if (id == 3) {
-      this.race = "Human";
-      this.profession = "Cleric";
       this.equipment = "Cursed Jewel";
       this.strength = "5";
       this.intelligence = "5";
@@ -86,8 +82,6 @@ export class CharacterSelectionComponent implements OnInit {
       this.hp = "150";
     }
     if (id == 4) {
-      this.race = "Elf";
-      this.profession = "Fighter";
       this.equipment = "Bow";
       this.strength = "5";
       this.intelligence = "5";
@@ -98,8 +92,6 @@ export class CharacterSelectionComponent implements OnInit {
       this.hp = "130";
     }
     if (id == 5) {
-      this.race = "Gnome";
-      this.profession = "Fighter";
       this.equipment = "Dual-Wield";
       this.strength = "5";
       this.intelligence = "5";
