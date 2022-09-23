@@ -9,9 +9,21 @@ import { CharacterSelectionService } from 'src/app/shared/services/character-sel
 })
 export class CharacterSelectionComponent implements OnInit {
   title = 'INCA EMPIRE ADVENTURES';
+  characters: Character[] = [];
+  images: string[];
+
   constructor(
     private characterSelectionService: CharacterSelectionService
-  ) { }
+  ) { 
+    this.images = [
+      'null',
+      'assets/DiosSol.png',
+      'assets/DiosMuerte.png',
+      'assets/DiosaLuna.png',
+      'assets/DiosaTierra.png',
+      'assets/CreadorUniverso.png'
+    ]
+  }
 
   ngOnInit(): void {
     this.getAllCharacters();
@@ -21,6 +33,8 @@ export class CharacterSelectionComponent implements OnInit {
     this.characterSelectionService.getAllCharacters("").subscribe(
       res => {
         let data: Character[] = res;
+        this.characters = data;
+        console.log("DATA: ", data)
       }
     )
   }

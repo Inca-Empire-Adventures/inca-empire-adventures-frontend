@@ -13,34 +13,10 @@
     <input type="hidden" #selection>
 
     <div class="card-container">
-        <div class="characterGroup">
-            <img src="assets/DiosSol.png" width="200" center>
+        <div *ngFor="let character of characters" class="characterGroup">
+            <img [src]="images[character.id]" width="200" center alt="name">
             <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
-                <span>Dios Sol</span>
-            </button>
-        </div>
-        <div class="characterGroup">
-            <img src="assets/DiosMuerte.png" width="200" center>
-            <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
-                <span>Dios de la Muerte</span>
-            </button>
-        </div>
-        <div class="characterGroup">
-            <img src="assets/DiosaLuna.png" width="200" center>
-            <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
-                <span>Diosa Luna</span>
-            </button>
-        </div>
-        <div class="characterGroup">
-            <img src="assets/DiosaTierra.png" width="200" center>
-            <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
-                <span>Diosa Tierra</span>
-            </button>
-        </div>
-        <div class="characterGroup">
-            <img src="assets/CreadorUniverso.png" width="200" center>
-            <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
-                <span>Creador del Universo</span>
+                <span>{{character.nameGroup}}</span>
             </button>
         </div>
     </div>
