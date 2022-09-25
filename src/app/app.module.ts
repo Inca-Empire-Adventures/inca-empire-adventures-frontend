@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,7 +19,12 @@ import { RoleplayGameComponent } from './pages/roleplay-game/roleplay-game.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      { path: '', component: CharacterSelectionComponent },
+      { path: 'name-selection', component: NameSelectionComponent },
+      { path: 'roleplay-game', component: RoleplayGameComponent },
+    ])
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

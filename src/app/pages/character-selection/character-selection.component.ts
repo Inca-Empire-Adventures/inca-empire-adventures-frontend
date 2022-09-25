@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Character } from 'src/app/shared/model/character';
 import { CharacterSelectionService } from 'src/app/shared/services/character-selection.service';
+
 
 @Component({
   selector: 'app-character-selection',
@@ -8,6 +10,7 @@ import { CharacterSelectionService } from 'src/app/shared/services/character-sel
   styleUrls: ['./character-selection.component.css']
 })
 export class CharacterSelectionComponent implements OnInit {
+
   title = 'INCA EMPIRE ADVENTURES';
   characters: Character[] = [];
   images: string[];
@@ -23,7 +26,8 @@ export class CharacterSelectionComponent implements OnInit {
   hp!: string;
 
   constructor(
-    private characterSelectionService: CharacterSelectionService
+    private characterSelectionService: CharacterSelectionService,
+    private router: Router
   ) {
     this.images = [
       'asd',
@@ -37,6 +41,7 @@ export class CharacterSelectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCharacters();
+    //this.listenerCambios.emit({ etapa: ProcesoEnum.NAMESELECTION });
   }
 
   private getAllCharacters() {
@@ -49,8 +54,8 @@ export class CharacterSelectionComponent implements OnInit {
     )
   }
   getCharacterN(id: number) {
-    this.race = this.characters[id-1].race.name;
-    this.profession = this.characters[id-1].profession.name;
+    this.race = this.characters[id - 1].race.name;
+    this.profession = this.characters[id - 1].profession.name;
     if (id == 1) {
       this.equipment = "Fire Cloak";
       this.strength = "3";
@@ -104,4 +109,9 @@ export class CharacterSelectionComponent implements OnInit {
 
   }
 
+  next() {
+    console.log("Entra next");
+    //this.listenerCambios.emit({ etapa: ProcesoEnum.NAME_SELECTION });
+    this.router.navigate(['name-selection'])
+  }
 }
