@@ -59,3 +59,14 @@ input {
     
     
   }
+
+  .style-button{
+    width: 260px;
+    height: 65px;
+    border-radius: 35px;
+    font-size:x-large;
+    font-weight: 900;
+    background-color: black;
+    color: white;
+    border: solid 2.5px white;
+}

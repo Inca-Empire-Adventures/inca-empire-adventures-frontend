@@ -2,15 +2,14 @@
 <div class="content">
     <div class="box1">
         <img src= "{{imageText}}" width="824px">
-        <input type="text" id="fname" name="fname">
-        <button id="btn"><img src= "{{imageButton}}" width="265px"> </button>
-        
+        <input  type="text" [(ngModel)]="userReq!.username" id="fname" name="fname">
+        <button type="button" class="style-button" (click)="sendUserReq();"> Start</button>
     </div>
     
     <div class="box2">
         <img src= "{{imageA}}" width="824px">
-    
     </div>
+
 
 </div>
 

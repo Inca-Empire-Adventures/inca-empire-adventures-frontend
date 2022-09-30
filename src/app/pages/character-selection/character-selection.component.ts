@@ -11,6 +11,7 @@ import { CharacterSelectionService } from 'src/app/shared/services/character-sel
 })
 export class CharacterSelectionComponent implements OnInit {
 
+  idCharacterSelected!: number;
   title = 'INCA EMPIRE ADVENTURES';
   characters: Character[] = [];
   images: string[];
@@ -27,7 +28,6 @@ export class CharacterSelectionComponent implements OnInit {
 
   constructor(
     private characterSelectionService: CharacterSelectionService,
-    private router: Router
   ) {
     this.images = [
       'asd',
@@ -54,6 +54,7 @@ export class CharacterSelectionComponent implements OnInit {
     )
   }
   getCharacterN(id: number) {
+    this.idCharacterSelected = id;
     this.race = this.characters[id - 1].race.name;
     this.profession = this.characters[id - 1].profession.name;
     if (id == 1) {
@@ -107,11 +108,5 @@ export class CharacterSelectionComponent implements OnInit {
       this.hp = "130";
     }
 
-  }
-
-  next() {
-    console.log("Entra next");
-    //this.listenerCambios.emit({ etapa: ProcesoEnum.NAME_SELECTION });
-    this.router.navigate(['name-selection'])
   }
 }

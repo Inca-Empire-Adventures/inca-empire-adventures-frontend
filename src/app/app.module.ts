@@ -2,7 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharacterSelectionComponent } from './pages/character-selection/character-selection.component';
@@ -20,9 +20,10 @@ import { RoleplayGameComponent } from './pages/roleplay-game/roleplay-game.compo
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot([
       { path: '', component: CharacterSelectionComponent },
-      { path: 'name-selection', component: NameSelectionComponent },
+      { path: 'name-selection/:idCharacter', component: NameSelectionComponent },
       { path: 'roleplay-game', component: RoleplayGameComponent },
     ])
   ],
