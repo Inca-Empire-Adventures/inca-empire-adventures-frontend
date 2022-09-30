@@ -2,7 +2,11 @@
     <div class="box1">
         <h1>ADVENTURE GENERATION</h1>
     </div>
-    <div class="box2">
+
+    <div *ngIf="!loading" class="box22">
+        <img src="../../../assets/loading.gif">
+    </div>
+    <div *ngIf="loading" class="box2">
         <h3>{{output_text}}</h3>
     </div>
 </div>

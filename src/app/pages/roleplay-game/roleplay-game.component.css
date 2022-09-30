@@ -27,6 +27,12 @@
     align-items: center;
 }
 
+.box22 {
+    display: flex;
+    align-items: center;
+    padding-left: 180px;
+}
+
 input {
     width: 490px;
     height: 60px;

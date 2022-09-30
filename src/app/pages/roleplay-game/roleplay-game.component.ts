@@ -10,7 +10,7 @@ import { RolePlayService } from 'src/app/shared/services/role-play.service';
 })
 export class RoleplayGameComponent implements OnInit {
   output_text: string | undefined;
-
+  loading: boolean = false;
   constructor(
     private roleplayService: RolePlayService
   ) { }
@@ -33,6 +33,7 @@ export class RoleplayGameComponent implements OnInit {
         this.output_text = res?.text_generated
       }
     )
+    this.loading = true;
   }
 
 }
