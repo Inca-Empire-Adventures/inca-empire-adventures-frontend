@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NameSelectionComponent implements OnInit {
 
+  imageA = 'assets/MP.png'
+  imageButton = 'assets/StartButton.png'
+  imageText = 'assets/Text.png'
+
   constructor() { }
 
   ngOnInit(): void {
