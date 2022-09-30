@@ -2,7 +2,8 @@
     <div class="box1">
         <img src="{{imageText}}" width="824px">
         <input type="text" [(ngModel)]="userReq!.username" id="fname" name="fname">
-        <button id="btn" (click)="sendUserReq();"><img src="{{imageButton}}" width="265px"> </button>
+        <button id="btn" (click)="sendUserReq();" routerLink="roleplay-game"><img src="{{imageButton}}" width="265px">
+        </button>
     </div>
 
     <div class="box2">

@@ -24,7 +24,7 @@ import { RoleplayGameComponent } from './pages/roleplay-game/roleplay-game.compo
     RouterModule.forRoot([
       { path: '', component: CharacterSelectionComponent },
       { path: 'name-selection/:idCharacter', component: NameSelectionComponent },
-      { path: 'roleplay-game', component: RoleplayGameComponent },
+      { path: 'name-selection/:idCharacter/roleplay-game', component: RoleplayGameComponent },
     ])
   ],
   providers: [HttpClientModule],
