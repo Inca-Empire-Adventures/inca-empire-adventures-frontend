@@ -7,13 +7,13 @@ import { StatisticsReq } from "../model/statisticsReq";
 @Injectable({
     providedIn: 'root'
 })
-export class SatisticsService {
+export class StatisticsService {
     constructor(private http: HttpClient) { }
 
     public postStatistics(route: string, body: StatisticsReq) {
         return this.http.post<Statistics>(this.createCompleteRouteContext(route), body);
     }
     private createCompleteRouteContext = (route: string) => {
-        return `${environment.urlAddress}/${environment.serviceNameSatistics}`;
+        return `${environment.urlAddress}/${environment.serviceNameSatistics}/`;
     }
 }

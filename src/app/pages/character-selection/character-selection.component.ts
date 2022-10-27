@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Character } from 'src/app/shared/model/character';
 import { StatisticsReq } from 'src/app/shared/model/statisticsReq';
 import { CharacterSelectionService } from 'src/app/shared/services/character-selection.service';
+import { StatisticsService } from 'src/app/shared/services/statistics.service';
 
 
 @Component({
@@ -28,8 +29,10 @@ export class CharacterSelectionComponent implements OnInit {
   hp!: string;
   statisticsRequest = new StatisticsReq
   diceRes!: number;
+  SatisticsService: any;
   constructor(
     private characterSelectionService: CharacterSelectionService,
+    private statisticsService: StatisticsService,
   ) {
     this.images = [
       'asd',
@@ -86,6 +89,15 @@ export class CharacterSelectionComponent implements OnInit {
     this.statisticsRequest.intelligence = this.rolDice();
     this.statisticsRequest.strength = this.rolDice();
     this.statisticsRequest.wisdom = this.rolDice();
+
+    this.statisticsService.postStatistics("/", this.statisticsRequest).subscribe(
+      res => {
+        console.log("stats: ", res)
+      },
+      err => {
+        console.log("ERROR: ", err)
+      }
+    );
 
     this.charisma = this.statisticsRequest.charisma;
     this.constitution = this.statisticsRequest.constitucion;
