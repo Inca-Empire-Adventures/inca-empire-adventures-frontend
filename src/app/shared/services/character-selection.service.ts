@@ -17,6 +17,7 @@ export class CharacterSelectionService {
     private createCompleteRouteCharacters = (route: string) => {
         return `${environment.urlAddress}/${environment.serviceNameCharacters}/${route}`;
     }
+
     /*
     private generateHeaders = () =>{
         return{

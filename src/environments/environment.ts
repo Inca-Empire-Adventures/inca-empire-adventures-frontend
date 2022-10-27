@@ -8,6 +8,7 @@ export const environment = {
   serviceNameUsers: 'users',
   serviceNameCharacters: 'characters',
   serviceNameContext: 'contexto/original',
+  serviceNameSatistics: 'statistics',
 };
 
 /*

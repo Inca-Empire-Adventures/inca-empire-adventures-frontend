@@ -20,7 +20,7 @@ export class NameSelectionComponent implements OnInit {
   constructor(
     private _activatedRoute: ActivatedRoute,
     private userService: UserService
-  ) { 
+  ) {
     this._activatedRoute.params.subscribe((params) => {
       this.userReq.character = params['idCharacter'];
     });
@@ -29,16 +29,18 @@ export class NameSelectionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  sendUserReq(): void{
+  sendUserReq(): void {
     console.log("post: ", this.userReq)
     this.userService.createUser(this.userReq).subscribe(
-      userResp =>{
+      userResp => {
         console.log("Creado: ", userResp)
       },
-      err=>{
+      err => {
         console.log("ERROR: ", err)
       }
     )
   }
+
+
 
 }

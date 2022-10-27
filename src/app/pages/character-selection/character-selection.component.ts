@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Character } from 'src/app/shared/model/character';
+import { StatisticsReq } from 'src/app/shared/model/statisticsReq';
 import { CharacterSelectionService } from 'src/app/shared/services/character-selection.service';
 
 
@@ -18,14 +19,15 @@ export class CharacterSelectionComponent implements OnInit {
   race!: string;
   profession!: string;
   equipment!: string;
-  strength!: string;
-  intelligence!: string;
-  dexterty!: string;
-  charisma!: string;
-  wisdom!: string;
-  constitution!: string;
+  strength!: number;
+  intelligence!: number;
+  dexterty!: number;
+  charisma!: number;
+  wisdom!: number;
+  constitution!: number;
   hp!: string;
-
+  statisticsRequest = new StatisticsReq
+  diceRes!: number;
   constructor(
     private characterSelectionService: CharacterSelectionService,
   ) {
@@ -53,58 +55,82 @@ export class CharacterSelectionComponent implements OnInit {
       }
     )
   }
+
+  rolDice() {
+    this.diceRes = 0;
+    let dice1 = Math.floor(Math.random() * 6) + 1;
+    let dice2 = Math.floor(Math.random() * 6) + 1;
+    let dice3 = Math.floor(Math.random() * 6) + 1;
+    let dice4 = Math.floor(Math.random() * 6) + 1;
+
+    let array = [dice1, dice2, dice3, dice4];
+
+    array.sort((a, b) => b - a);
+
+    console.log(array);
+    array.pop();
+    console.log(array);
+
+    for (var i = 0; i < array.length; i++) {
+      this.diceRes = this.diceRes + array[i];
+    }
+    console.log(this.diceRes);
+    return this.diceRes;
+  }
+
+  setStatistics(id: number) {
+    this.statisticsRequest = new StatisticsReq();
+    this.statisticsRequest.charisma = this.rolDice();
+    this.statisticsRequest.constitucion = this.rolDice();
+    this.statisticsRequest.dexterity = this.rolDice();
+    this.statisticsRequest.intelligence = this.rolDice();
+    this.statisticsRequest.strength = this.rolDice();
+    this.statisticsRequest.wisdom = this.rolDice();
+
+    this.charisma = this.statisticsRequest.charisma;
+    this.constitution = this.statisticsRequest.constitucion;
+    this.dexterty = this.statisticsRequest.dexterity;
+    this.intelligence = this.statisticsRequest.intelligence;
+    this.strength = this.statisticsRequest.strength;
+    this.wisdom = this.statisticsRequest.wisdom;
+
+    this.characterSelectionService.getAllCharacters("").subscribe(
+      res => {
+        let data: Character[] = res;
+        this.characters = data;
+        console.log("DATA: ", data)
+      }
+    )
+  }
+
   getCharacterN(id: number) {
     this.idCharacterSelected = id;
     this.race = this.characters[id - 1].race.name;
     this.profession = this.characters[id - 1].profession.name;
+
     if (id == 1) {
+      this.setStatistics(id);
       this.equipment = "Fire Cloak";
-      this.strength = "3";
-      this.intelligence = "5";
-      this.dexterty = "2";
-      this.charisma = "2";
-      this.wisdom = "5";
-      this.constitution = "5";
       this.hp = "120";
     }
     if (id == 2) {
+      this.setStatistics(id);
       this.equipment = "Death Mask";
-      this.strength = "5";
-      this.intelligence = "5";
-      this.dexterty = "4";
-      this.charisma = "2";
-      this.wisdom = "5";
-      this.constitution = "5";
       this.hp = "100";
     }
     if (id == 3) {
+      this.setStatistics(id);
       this.equipment = "Cursed Jewel";
-      this.strength = "5";
-      this.intelligence = "5";
-      this.dexterty = "4";
-      this.charisma = "2";
-      this.wisdom = "5";
-      this.constitution = "5";
       this.hp = "150";
     }
     if (id == 4) {
+      this.setStatistics(id);
       this.equipment = "Bow";
-      this.strength = "5";
-      this.intelligence = "5";
-      this.dexterty = "4";
-      this.charisma = "2";
-      this.wisdom = "5";
-      this.constitution = "5";
       this.hp = "130";
     }
     if (id == 5) {
+      this.setStatistics(id);
       this.equipment = "Dual-Wield";
-      this.strength = "5";
-      this.intelligence = "5";
-      this.dexterty = "4";
-      this.charisma = "2";
-      this.wisdom = "5";
-      this.constitution = "5";
       this.hp = "130";
     }
 
