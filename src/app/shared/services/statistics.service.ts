@@ -13,6 +13,11 @@ export class StatisticsService {
     public postStatistics(route: string, body: StatisticsReq) {
         return this.http.post<Statistics>(this.createCompleteRouteContext(route), body);
     }
+
+    public getAllStatistics(route: string) {
+        return this.http.get<Statistics[]>(this.createCompleteRouteContext(route));
+    }
+
     private createCompleteRouteContext = (route: string) => {
         return `${environment.urlAddress}/${environment.serviceNameSatistics}/`;
     }

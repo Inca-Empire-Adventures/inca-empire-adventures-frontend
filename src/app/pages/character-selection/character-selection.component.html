@@ -59,7 +59,8 @@
 </fieldset>
 <input type="hidden" #selection>
 <div class="buttonG">
-    <button mat-button type="buttom" class="next" routerLink="name-selection/{{idCharacterSelected}}">NEXT</button>
+    <button mat-button type="buttom" class="next" routerLink="name-selection/{{idCharacterSelected}}"
+        (click)="postStatisticsContinuar()">NEXT</button>
 </div>
 
 

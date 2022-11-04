@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Character } from 'src/app/shared/model/character';
+import { Statistics } from 'src/app/shared/model/statistics';
 import { StatisticsReq } from 'src/app/shared/model/statisticsReq';
 import { CharacterSelectionService } from 'src/app/shared/services/character-selection.service';
 import { StatisticsService } from 'src/app/shared/services/statistics.service';
@@ -16,6 +17,7 @@ export class CharacterSelectionComponent implements OnInit {
   idCharacterSelected!: number;
   title = 'INCA EMPIRE ADVENTURES';
   characters: Character[] = [];
+  statistics: Statistics[] = [];
   images: string[];
   race!: string;
   profession!: string;
@@ -46,6 +48,7 @@ export class CharacterSelectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCharacters();
+    this.getAllStatistics();
     //this.listenerCambios.emit({ etapa: ProcesoEnum.NAMESELECTION });
   }
 
@@ -55,6 +58,16 @@ export class CharacterSelectionComponent implements OnInit {
         let data: Character[] = res;
         this.characters = data;
         console.log("DATA: ", data)
+      }
+    )
+  }
+
+  private getAllStatistics() {
+    this.statisticsService.getAllStatistics("").subscribe(
+      res => {
+        let data: Statistics[] = res;
+        this.statistics = data;
+        console.log("DATA: ", data);
       }
     )
   }
@@ -90,21 +103,19 @@ export class CharacterSelectionComponent implements OnInit {
     this.statisticsRequest.strength = this.rolDice();
     this.statisticsRequest.wisdom = this.rolDice();
 
-    this.statisticsService.postStatistics("/", this.statisticsRequest).subscribe(
-      res => {
-        console.log("stats: ", res)
-      },
-      err => {
-        console.log("ERROR: ", err)
-      }
-    );
+    console.log("strength:", this.statisticsRequest.strength);
+    console.log("intelligence:", this.statisticsRequest.intelligence);
+    console.log("dexterity:", this.statisticsRequest.dexterity);
+    console.log("charisma:", this.statisticsRequest.charisma);
+    console.log("wisdom:", this.statisticsRequest.wisdom);
+    console.log("constitucion:", this.statisticsRequest.constitucion);
 
-    this.charisma = this.statisticsRequest.charisma;
-    this.constitution = this.statisticsRequest.constitucion;
-    this.dexterty = this.statisticsRequest.dexterity;
-    this.intelligence = this.statisticsRequest.intelligence;
-    this.strength = this.statisticsRequest.strength;
-    this.wisdom = this.statisticsRequest.wisdom;
+    this.charisma = this.statisticsRequest.charisma + this.statistics[id - 1].charisma;
+    this.constitution = this.statisticsRequest.constitucion + this.statistics[id - 1].constitucion;
+    this.dexterty = this.statisticsRequest.dexterity + this.statistics[id - 1].dexterity;
+    this.intelligence = this.statisticsRequest.intelligence + this.statistics[id - 1].intelligence;
+    this.strength = this.statisticsRequest.strength + this.statistics[id - 1].strength;
+    this.wisdom = this.statisticsRequest.wisdom + this.statistics[id - 1].wisdom;
 
     this.characterSelectionService.getAllCharacters("").subscribe(
       res => {
@@ -113,6 +124,17 @@ export class CharacterSelectionComponent implements OnInit {
         console.log("DATA: ", data)
       }
     )
+  }
+
+  postStatisticsContinuar() {
+    this.statisticsService.postStatistics("/", this.statisticsRequest).subscribe(
+      res => {
+        console.log("stats: ", res)
+      },
+      err => {
+        console.log("ERROR: ", err)
+      }
+    );
   }
 
   getCharacterN(id: number) {
@@ -138,11 +160,6 @@ export class CharacterSelectionComponent implements OnInit {
     if (id == 4) {
       this.setStatistics(id);
       this.equipment = "Bow";
-      this.hp = "130";
-    }
-    if (id == 5) {
-      this.setStatistics(id);
-      this.equipment = "Dual-Wield";
       this.hp = "130";
     }
 
