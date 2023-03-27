@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Adventure } from 'src/app/shared/model/adventure';
+import { Character } from 'src/app/shared/model/character';
 import { Context } from 'src/app/shared/model/context';
 import { ContextReq } from 'src/app/shared/model/contextReq';
 import { RolePlayService } from 'src/app/shared/services/role-play.service';
@@ -25,12 +27,13 @@ export class RoleplayGameComponent implements OnInit {
 
   private async postContext() {
 
-    let contextReq = new ContextReq();
-    contextReq.text_generated = "The god of sun came to help the inca empire"
+    let contextReq = new Adventure();
+    contextReq.description = "Este es el primer parrafo de la aventura ambientada en el Imperio Incaico"
+    contextReq.character = 1
     await this.roleplayService.postContextOriginal('', contextReq).toPromise().then(
       res => {
         console.log("text_generated:", res);
-        this.output_text = res?.text_generated
+        this.output_text = res?.description
       }
     )
     this.loading = true;

@@ -7,7 +7,7 @@ export const environment = {
   urlAddress: 'http://127.0.0.1:8000',
   serviceNameUsers: 'users',
   serviceNameCharacters: 'characters',
-  serviceNameContext: 'contexto/original',
+  serviceNameContext: 'adventure',
   serviceNameSatistics: 'statistics',
   serviceNameProfessions: 'professions',
 };
