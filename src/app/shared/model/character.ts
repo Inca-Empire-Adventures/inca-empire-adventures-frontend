@@ -3,8 +3,8 @@ import { Race } from "./race";
 
 export class Character {
     id!: number;
-    nameGroup!: string;
-    nameplayer!: string;
-    race!: Race;
-    profession!: Profession;
+    characterName!: string;
+    statistic!: string;
+    url!: Race;
+    user!: Profession;
 }

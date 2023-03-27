@@ -6,4 +6,7 @@ export class Statistics {
     charisma!: number;
     wisdom!: number;
     constitucion!: number;
+    url!: string;
+    ethnicity!: string;
+
 }

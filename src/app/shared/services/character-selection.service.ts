@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RouterTestingModule } from "@angular/router/testing";
 import { environment } from "src/environments/environment";
 import { Character } from "../model/character";
+import { Profession } from "../model/profession";
 
 @Injectable({
     providedIn: 'root'
@@ -16,6 +17,14 @@ export class CharacterSelectionService {
 
     private createCompleteRouteCharacters = (route: string) => {
         return `${environment.urlAddress}/${environment.serviceNameCharacters}/${route}`;
+    }
+
+    public getAllProfessions(route: string) {
+        return this.http.get<Profession[]>(this.createCompleteRouteProfessions(route));
+    }
+
+    private createCompleteRouteProfessions = (route: string) => {
+        return `${environment.urlAddress}/${environment.serviceNameProfessions}/${route}`;
     }
 
     /*

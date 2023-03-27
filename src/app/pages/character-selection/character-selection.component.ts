@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Character } from 'src/app/shared/model/character';
+import { Profession } from 'src/app/shared/model/profession';
 import { Statistics } from 'src/app/shared/model/statistics';
 import { StatisticsReq } from 'src/app/shared/model/statisticsReq';
 import { CharacterSelectionService } from 'src/app/shared/services/character-selection.service';
@@ -18,6 +19,7 @@ export class CharacterSelectionComponent implements OnInit {
   title = 'INCA EMPIRE ADVENTURES';
   characters: Character[] = [];
   statistics: Statistics[] = [];
+  professions: Profession[] = [];
   images: string[];
   race!: string;
   profession!: string;
@@ -49,6 +51,7 @@ export class CharacterSelectionComponent implements OnInit {
   ngOnInit(): void {
     this.getAllCharacters();
     this.getAllStatistics();
+    this.getAllProfessions();
     //this.listenerCambios.emit({ etapa: ProcesoEnum.NAMESELECTION });
   }
 
@@ -67,6 +70,16 @@ export class CharacterSelectionComponent implements OnInit {
       res => {
         let data: Statistics[] = res;
         this.statistics = data;
+        console.log("DATA: ", data);
+      }
+    )
+  }
+
+  private getAllProfessions() {
+    this.characterSelectionService.getAllProfessions("").subscribe(
+      res => {
+        let data: Profession[] = res;
+        this.professions = data;
         console.log("DATA: ", data);
       }
     )
@@ -139,8 +152,8 @@ export class CharacterSelectionComponent implements OnInit {
 
   getCharacterN(id: number) {
     this.idCharacterSelected = id;
-    this.race = this.characters[id - 1].race.name;
-    this.profession = this.characters[id - 1].profession.name;
+    this.race = this.characters[id - 1].characterName;
+    this.profession = this.professions[id - 1].name;
 
     if (id == 1) {
       this.setStatistics(id);

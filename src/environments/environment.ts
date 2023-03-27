@@ -9,6 +9,7 @@ export const environment = {
   serviceNameCharacters: 'characters',
   serviceNameContext: 'contexto/original',
   serviceNameSatistics: 'statistics',
+  serviceNameProfessions: 'professions',
 };
 
 /*
