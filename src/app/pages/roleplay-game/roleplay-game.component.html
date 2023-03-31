@@ -1,13 +1,19 @@
 <div class="content">
     <div class="box1">
-        <h1>ADVENTURE GENERATION</h1>
+        <h1>ENJOY YOUR ADVENTURE</h1>
     </div>
+    <fieldset class="roleplay">
+        <fieldset class="story">
 
-    <div *ngIf="!loading" class="box22">
-        <img src="../../../assets/loading.gif">
-    </div>
-    <div *ngIf="loading" class="box2">
-        <h3>{{output_text}}</h3>
-    </div>
+            <div *ngIf="!loading" class="box22">
+                <img src="../../../assets/loading.gif">
+            </div>
+            <div *ngIf="loading" class="box2">
+                <h3>{{output_text}}</h3>
+            </div>
+        </fieldset>
+    </fieldset>
+
+
 </div>
 <router-outlet></router-outlet>
