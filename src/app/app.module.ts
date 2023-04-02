@@ -1,13 +1,14 @@
 import { HttpClientModule } from '@angular/common/http';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharacterSelectionComponent } from './pages/character-selection/character-selection.component';
 import { NameSelectionComponent } from './pages/name-selection/name-selection.component';
 import { RoleplayGameComponent } from './pages/roleplay-game/roleplay-game.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { RoleplayGameComponent } from './pages/roleplay-game/roleplay-game.compo
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    MatFormFieldModule,
     RouterModule.forRoot([
       { path: '', component: CharacterSelectionComponent },
       { path: 'name-selection/:idCharacter', component: NameSelectionComponent },

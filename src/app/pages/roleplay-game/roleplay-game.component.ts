@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { Adventure } from 'src/app/shared/model/adventure';
 import { Character } from 'src/app/shared/model/character';
 import { Context } from 'src/app/shared/model/context';
