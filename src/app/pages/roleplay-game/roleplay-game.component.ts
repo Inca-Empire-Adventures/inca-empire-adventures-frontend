@@ -30,6 +30,7 @@ export class RoleplayGameComponent implements OnInit {
 
   async postContext() {
 
+    this.contextReq.description = "";
     if (this.isFirst == true) {
       this.contextReq.description = "Este es el primer parrafo de la aventura ambientada en el Imperio Incaico"
     }
@@ -42,6 +43,7 @@ export class RoleplayGameComponent implements OnInit {
       }
     )
     this.contextReq.description = "";
+
     this.loading = true;
     this.isFirst = false;
   }
