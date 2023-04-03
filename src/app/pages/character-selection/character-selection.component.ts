@@ -22,6 +22,7 @@ export class CharacterSelectionComponent implements OnInit {
   professions: Profession[] = [];
   images: string[];
   race!: string;
+  raceId!: number;
   profession!: string;
   equipment!: string;
   strength!: number;
@@ -30,8 +31,10 @@ export class CharacterSelectionComponent implements OnInit {
   charisma!: number;
   wisdom!: number;
   constitution!: number;
+  ethnicity!: number;
   hp!: string;
   statisticsRequest = new StatisticsReq
+  statisticsData = new Statistics;
   diceRes!: number;
   SatisticsService: any;
   constructor(
@@ -59,8 +62,9 @@ export class CharacterSelectionComponent implements OnInit {
     this.characterSelectionService.getAllCharacters("").subscribe(
       res => {
         let data: Character[] = res;
+        data.length = 4;
         this.characters = data;
-        console.log("DATA: ", data)
+        console.log("DATAS: ", data)
       }
     )
   }
@@ -129,30 +133,48 @@ export class CharacterSelectionComponent implements OnInit {
     this.intelligence = this.statisticsRequest.intelligence + this.statistics[id - 1].intelligence;
     this.strength = this.statisticsRequest.strength + this.statistics[id - 1].strength;
     this.wisdom = this.statisticsRequest.wisdom + this.statistics[id - 1].wisdom;
+    console.log("el ethnicity es: ", this.race)
 
     this.characterSelectionService.getAllCharacters("").subscribe(
       res => {
         let data: Character[] = res;
+        data.length = 4;
         this.characters = data;
-        console.log("DATA: ", data)
+        console.log("DATAS: ", data)
       }
     )
   }
 
   postStatisticsContinuar() {
+    this.statisticsRequest.ethnicity = this.raceId;
     this.statisticsService.postStatistics("/", this.statisticsRequest).subscribe(
       res => {
         console.log("stats: ", res)
+        this.statisticsData = res;
+        localStorage.setItem("statisticsId", this.statisticsData.id.toString());
       },
       err => {
         console.log("ERROR: ", err)
       }
+
     );
   }
 
   getCharacterN(id: number) {
     this.idCharacterSelected = id;
     this.race = this.characters[id - 1].characterName;
+    if (this.race == 'God of Sun') {
+      this.raceId = 1;
+    }
+    if (this.race == 'God of Death') {
+      this.raceId = 2;
+    }
+    if (this.race == 'God of Moon') {
+      this.raceId = 3;
+    }
+    if (this.race == 'God of Earth') {
+      this.raceId = 4;
+    }
     this.profession = this.professions[id - 1].name;
 
     if (id == 1) {

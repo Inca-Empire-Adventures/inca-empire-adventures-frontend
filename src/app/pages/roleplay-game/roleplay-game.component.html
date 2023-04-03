@@ -12,12 +12,18 @@
                 <h3>{{output_text}}</h3>
             </div>
         </fieldset>
-        <fieldset class="prompt">
+        <fieldset *ngIf="loading" class="prompt">
             <mat-form-field appearance="fill">
-                <mat-label>Input</mat-label>
-                <input matInput>
+                <input type="text" [(ngModel)]="contextReq.description">
             </mat-form-field>
         </fieldset>
+        <div class="sendbutton">
+            <button id="btn" (click)="postContext();" routerLink="roleplay-game"><img class="send" src="{{imageButton}}"
+                    width="265px">
+            </button>
+
+        </div>
+
 
     </fieldset>
 

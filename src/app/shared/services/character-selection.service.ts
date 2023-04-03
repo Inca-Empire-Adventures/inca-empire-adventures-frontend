@@ -4,6 +4,7 @@ import { RouterTestingModule } from "@angular/router/testing";
 import { environment } from "src/environments/environment";
 import { Character } from "../model/character";
 import { Profession } from "../model/profession";
+import { CharacterReq } from "../model/characterReq";
 
 @Injectable({
     providedIn: 'root'
@@ -25,6 +26,10 @@ export class CharacterSelectionService {
 
     private createCompleteRouteProfessions = (route: string) => {
         return `${environment.urlAddress}/${environment.serviceNameProfessions}/${route}`;
+    }
+
+    public postCharacters(route: string, body: CharacterReq) {
+        return this.http.post<Character>(this.createCompleteRouteCharacters(route), body);
     }
 
     /*

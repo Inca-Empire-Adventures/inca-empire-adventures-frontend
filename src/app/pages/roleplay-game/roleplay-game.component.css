@@ -135,4 +135,47 @@ mat-form-field-infix {
 input {
     border-color: black;
     border-width: 3px;
+    background: white;
+}
+
+.mat-input-element {
+    border: solid !important;
+}
+
+
+input {
+    width: 490px;
+    height: 60px;
+    border-radius: 20px;
+    font-size: 25px;
+
+}
+
+#btn {
+    background-color: black;
+    border: none;
+    align-self: center;
+    background: center;
+
+}
+
+.style-button {
+    width: 260px;
+    height: 65px;
+    border-radius: 35px;
+    font-size: x-large;
+    font-weight: 900;
+    background-color: black;
+    color: white;
+    border: solid 2.5px white;
+}
+
+.send {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+    width: 265px !important;
+}
+
+.sendbutton {
+    text-align: center;
 }

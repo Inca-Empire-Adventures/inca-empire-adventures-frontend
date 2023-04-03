@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Character } from 'src/app/shared/model/character';
+import { CharacterReq } from 'src/app/shared/model/characterReq';
+import { Statistics } from 'src/app/shared/model/statistics';
 import { UserReq } from 'src/app/shared/model/user-req';
+import { CharacterSelectionService } from 'src/app/shared/services/character-selection.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -10,37 +14,45 @@ import { UserService } from 'src/app/shared/services/user.service';
 })
 export class NameSelectionComponent implements OnInit {
   idCharacterSelected!: number;
-
-  userReq: UserReq = new UserReq;
-
+  statisticsData!: Statistics;
+  characterReq: CharacterReq = new CharacterReq;
+  characterRes: Character = new Character;
   imageA = 'assets/MP.png'
   imageButton = 'assets/StartButton.png'
   imageText = 'assets/Text.png'
 
   constructor(
     private _activatedRoute: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    private characterSelectionService: CharacterSelectionService
   ) {
-    this._activatedRoute.params.subscribe((params) => {
-      this.userReq.character = params['idCharacter'];
-    });
+
   }
 
   ngOnInit(): void {
   }
 
-  sendUserReq(): void {
-    console.log("post: ", this.userReq)
-    this.userService.createUser(this.userReq).subscribe(
-      userResp => {
-        console.log("Creado: ", userResp)
+
+  sendCharacter() {
+    if (localStorage.getItem("statisticsId") != null) {
+      // @ts-ignore: Object is possibly 'null'.
+      this.characterReq.statistic = +(localStorage.getItem("statisticsId"));
+    }
+    this.characterReq.user = 1;
+    console.log(this.characterReq.characterName);
+
+    this.characterSelectionService.postCharacters("", this.characterReq).subscribe(
+      res => {
+        console.log("stats: ", res);
+        this.characterRes = res;
+        localStorage.setItem("characterId", this.characterRes.id.toString());
       },
       err => {
         console.log("ERROR: ", err)
       }
-    )
-  }
 
+    );
+  }
 
 
 }

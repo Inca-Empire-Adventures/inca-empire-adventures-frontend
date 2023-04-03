@@ -5,4 +5,5 @@ export class StatisticsReq {
     charisma!: number;
     wisdom!: number;
     constitucion!: number;
+    ethnicity!: number;
 }

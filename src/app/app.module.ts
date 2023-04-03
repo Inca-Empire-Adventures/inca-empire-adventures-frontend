@@ -9,6 +9,7 @@ import { CharacterSelectionComponent } from './pages/character-selection/charact
 import { NameSelectionComponent } from './pages/name-selection/name-selection.component';
 import { RoleplayGameComponent } from './pages/roleplay-game/roleplay-game.component';
 import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    MatInputModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

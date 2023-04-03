@@ -13,6 +13,9 @@ import { RolePlayService } from 'src/app/shared/services/role-play.service';
 export class RoleplayGameComponent implements OnInit {
   output_text: string | undefined;
   loading: boolean = false;
+  contextReq: Adventure = new Adventure();
+  isFirst: boolean = true;
+  imageButton = 'assets/sendButton.png'
   constructor(
     private roleplayService: RolePlayService
   ) { }
@@ -25,18 +28,22 @@ export class RoleplayGameComponent implements OnInit {
     await this.postContext();
   }
 
-  private async postContext() {
+  async postContext() {
 
-    let contextReq = new Adventure();
-    contextReq.description = "Este es el primer parrafo de la aventura ambientada en el Imperio Incaico"
-    contextReq.character = 1
-    await this.roleplayService.postContextOriginal('', contextReq).toPromise().then(
+    if (this.isFirst == true) {
+      this.contextReq.description = "Este es el primer parrafo de la aventura ambientada en el Imperio Incaico"
+    }
+    // @ts-ignore: Object is possibly 'null'.
+    this.contextReq.character = +localStorage.getItem("characterId");
+    await this.roleplayService.postContextOriginal('', this.contextReq).toPromise().then(
       res => {
         console.log("text_generated:", res);
         this.output_text = res?.description
       }
     )
+    this.contextReq.description = "";
     this.loading = true;
+    this.isFirst = false;
   }
 
 }
