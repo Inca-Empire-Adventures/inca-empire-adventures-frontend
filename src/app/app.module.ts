@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { CharacterSelectionComponent } from './pages/character-selection/character-selection.component';
 import { NameSelectionComponent } from './pages/name-selection/name-selection.component';
 import { RoleplayGameComponent } from './pages/roleplay-game/roleplay-game.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharacterSelectionComponent,
     NameSelectionComponent,
-    RoleplayGameComponent
+    RoleplayGameComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,15 @@
+<div class="mat-app-background">
+    <div class="background-image"></div>
+    <div class="mat-card">
+      <form class="mat-form">
+        <mat-form-field class="custom-input">
+          <input matInput placeholder="Username" name="username" [(ngModel)]="credenciales.username" required>
+        </mat-form-field>
+        <mat-form-field class="custom-input">
+          <input matInput placeholder="Password" name="password" [(ngModel)]="credenciales.password" type="password" required>
+        </mat-form-field>
+        <button mat-raised-button type="submit" (click)="login()">Login</button>
+      </form>
+    </div>
+  </div>
+  
