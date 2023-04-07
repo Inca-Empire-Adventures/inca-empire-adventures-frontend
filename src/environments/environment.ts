@@ -5,12 +5,13 @@
 export const environment = {
   production: false,
   urlAddress: 'http://127.0.0.1:8000',
-  serviceNameUsers: 'users',
+  serviceAuth: 'api/token',
   serviceNameCharacters: 'characters',
   serviceNameContext: 'adventure/',
   serviceNameSatistics: 'statistics',
   serviceNameProfessions: 'professions',
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

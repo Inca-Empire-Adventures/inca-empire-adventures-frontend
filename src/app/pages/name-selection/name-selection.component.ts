@@ -3,9 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Character } from 'src/app/shared/model/character';
 import { CharacterReq } from 'src/app/shared/model/characterReq';
 import { Statistics } from 'src/app/shared/model/statistics';
-import { UserReq } from 'src/app/shared/model/user-req';
+import { UserReq } from 'src/app/shared/model/auth/user-req';
 import { CharacterSelectionService } from 'src/app/shared/services/character-selection.service';
-import { UserService } from 'src/app/shared/services/user.service';
+import { UserService } from 'src/app/shared/services/auth/user.service';
 
 @Component({
   selector: 'app-name-selection',
