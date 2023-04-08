@@ -15,4 +15,10 @@ export class UserService {
     const url = `${environment.urlAddress}/${environment.serviceAuth}/`;
     return this.http.post<TokenResponse>(url, userReq);
   }
+
+  register(userReq: UserReq): Observable<TokenResponse> {
+    const url = `${environment.urlAddress}/api/register/`;
+
+    return this.http.post<TokenResponse>(url, userReq);
+  }
 }

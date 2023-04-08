@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlAddress: 'http://127.0.0.1:8000',
+  urlAddress: 'http://localhost:8000',
   serviceAuth: 'api/token',
   serviceNameCharacters: 'characters',
   serviceNameContext: 'adventure/',

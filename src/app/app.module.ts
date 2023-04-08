@@ -20,6 +20,7 @@ import { AuthGuard } from './shared/services/auth/auth-guard';
 const routes: Routes = [
   { path: '', component: CharacterSelectionComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: LoginComponent },
   { path: 'name-selection/:idCharacter', component: NameSelectionComponent, canActivate: [AuthGuard] },
   { path: 'name-selection/:idCharacter/roleplay-game', component: RoleplayGameComponent, canActivate: [AuthGuard] },
 ];

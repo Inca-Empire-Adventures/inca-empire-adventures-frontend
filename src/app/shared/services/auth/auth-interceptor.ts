@@ -10,9 +10,12 @@ export class AuthInterceptor implements HttpInterceptor {
     const token = sessionStorage.getItem('tokenAccess');
 
     // Clonar la solicitud y agregar el token JWT al encabezado de autenticación
-    const authReq = req.clone({
-      headers: req.headers.set('Authorization', `Bearer ${token}`)
-    });
+    let authReq = req;
+    if (token) {
+      authReq = req.clone({
+        headers: req.headers.set('Authorization', `Bearer ${token}`)
+      });
+    }
 
     // Continuar la cadena de interceptores y devolver el resultado
     return next.handle(authReq);
