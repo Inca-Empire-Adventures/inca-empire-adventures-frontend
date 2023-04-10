@@ -1,1 +1,32 @@
-<p>roleplay-game works!</p>
+<div class="content">
+    <div class="box1">
+        <h1>ENJOY YOUR ADVENTURE</h1>
+    </div>
+    <fieldset class="roleplay">
+        <fieldset class="story">
+
+            <div *ngIf="!loading" class="box22">
+                <img src="../../../assets/loading.gif">
+            </div>
+            <div *ngIf="loading" class="box2">
+                <h3>{{output_text}}</h3>
+            </div>
+        </fieldset>
+        <fieldset *ngIf="loading" class="prompt">
+            <mat-form-field appearance="fill">
+                <input type="text" [(ngModel)]="contextReq.description">
+            </mat-form-field>
+        </fieldset>
+        <div class="sendbutton">
+            <button id="btn" (click)="postContext();" routerLink="roleplay-game"><img class="send" src="{{imageButton}}"
+                    width="265px">
+            </button>
+
+        </div>
+
+
+    </fieldset>
+
+
+</div>
+<router-outlet></router-outlet>

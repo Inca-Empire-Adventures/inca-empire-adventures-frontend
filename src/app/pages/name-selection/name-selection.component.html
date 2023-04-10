@@ -1,1 +1,21 @@
-<p>name-selection works!</p>
+<div class="content">
+    <div class="box1">
+        <img src="{{imageText}}" width="824px">
+        <input type="text" [(ngModel)]="characterReq!.characterName" id="fname" name="fname">
+        <button id="btn" (click)="sendCharacter();" routerLink="roleplay-game"><img src="{{imageButton}}" width="265px">
+        </button>
+    </div>
+
+    <div class="box2">
+        <img src="{{imageA}}" width="824px">
+    </div>
+
+
+</div>
+
+
+
+
+
+
+<router-outlet></router-outlet>

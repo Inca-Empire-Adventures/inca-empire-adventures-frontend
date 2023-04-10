@@ -1,0 +1,181 @@
+.content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*display: flex;*/
+    flex-direction: row;
+    align-content: center;
+    gap: 30px;
+    background-color: black;
+    /*padding-bottom: 100px;*/
+}
+
+.box1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    justify-content: center;
+
+}
+
+.box2 {
+    display: flex;
+    align-items: center;
+
+}
+
+.box22 {
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+
+img {
+    margin: auto;
+    width: 5%
+}
+
+input {
+    width: 490px;
+    height: 60px;
+    border-radius: 20px;
+    font-size: 25px;
+
+}
+
+#btn {
+    background-color: black;
+    border: none;
+    align-self: center;
+
+
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .content {
+        flex-direction: column;
+    }
+
+    img {
+        width: 90%;
+    }
+
+    input {
+        width: 85%;
+    }
+
+
+}
+
+.style-button {
+    width: 260px;
+    height: 65px;
+    border-radius: 35px;
+    font-size: x-large;
+    font-weight: 900;
+    background-color: black;
+    color: white;
+    border: solid 2.5px white;
+}
+
+h3 {
+    color: white !important;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: justify;
+}
+
+h1 {
+    color: white;
+}
+
+.story {
+    margin: 80px;
+    border-radius: 50px;
+    border: solid;
+    border-color: transparent;
+    background-color: rgba(7, 7, 8, 0.6);
+
+}
+
+.roleplay {
+    background: url(src\assets\roleplaybackground.jpg);
+    margin: 50px;
+    height: 600px;
+    margin-top: 5px;
+    border-radius: 50px;
+    border: solid;
+    border-color: transparent;
+}
+
+mat-form-field-infix {
+    width: -180px !important;
+}
+
+.mat-form-field-infix {
+    width: -180px !important;
+}
+
+.mat-form-field {
+    display: block !important;
+    text-align: center;
+}
+
+.prompt {
+    text-align: center;
+    border-color: transparent;
+}
+
+input {
+    border-color: black;
+    border-width: 3px;
+    background: white;
+}
+
+.mat-input-element {
+    border: solid !important;
+}
+
+
+input {
+    width: 490px;
+    height: 60px;
+    border-radius: 20px;
+    font-size: 25px;
+
+}
+
+#btn {
+    background-color: black;
+    border: none;
+    align-self: center;
+    background: center;
+
+}
+
+.style-button {
+    width: 260px;
+    height: 65px;
+    border-radius: 35px;
+    font-size: x-large;
+    font-weight: 900;
+    background-color: black;
+    color: white;
+    border: solid 2.5px white;
+}
+
+.send {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+    width: 265px !important;
+}
+
+.sendbutton {
+    text-align: center;
+}
