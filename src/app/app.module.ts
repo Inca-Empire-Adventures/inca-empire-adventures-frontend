@@ -2,7 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharacterSelectionComponent } from './pages/character-selection/character-selection.component';
@@ -10,28 +10,44 @@ import { NameSelectionComponent } from './pages/name-selection/name-selection.co
 import { RoleplayGameComponent } from './pages/roleplay-game/roleplay-game.component';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { LoginComponent } from './pages/login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './shared/services/auth/auth-interceptor';
+import { AuthGuard } from './shared/services/auth/auth-guard';
+
+const routes: Routes = [
+  { path: '', component: CharacterSelectionComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: LoginComponent },
+  { path: 'name-selection/:idCharacter', component: NameSelectionComponent, canActivate: [AuthGuard] },
+  { path: 'name-selection/:idCharacter/roleplay-game', component: RoleplayGameComponent, canActivate: [AuthGuard] },
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     CharacterSelectionComponent,
     NameSelectionComponent,
-    RoleplayGameComponent
+    RoleplayGameComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
-    MatInputModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     MatFormFieldModule,
-    RouterModule.forRoot([
-      { path: '', component: CharacterSelectionComponent },
-      { path: 'name-selection/:idCharacter', component: NameSelectionComponent },
-      { path: 'name-selection/:idCharacter/roleplay-game', component: RoleplayGameComponent },
-    ])
+    MatInputModule,
+    MatButtonModule,
+    RouterModule.forRoot(routes),
   ],
-  providers: [HttpClientModule],
-  bootstrap: [AppComponent]
+  providers: [
+    HttpClientModule,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
