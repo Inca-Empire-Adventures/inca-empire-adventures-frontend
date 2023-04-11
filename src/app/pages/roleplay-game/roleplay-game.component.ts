@@ -11,6 +11,7 @@ import { RolePlayService } from 'src/app/shared/services/role-play.service';
   styleUrls: ['./roleplay-game.component.css']
 })
 export class RoleplayGameComponent implements OnInit {
+  [x: string]: any;
   output_text: string | undefined;
   loading: boolean = false;
   contextReq: Adventure = new Adventure();
@@ -25,27 +26,33 @@ export class RoleplayGameComponent implements OnInit {
   }
 
   async inicio() {
-    await this.postContext();
+
+    await this.postContext('');
   }
 
-  async postContext() {
+  async postContext(description: string) {
+    if (localStorage.getItem("characterId") != null) {
+      // @ts-ignore: Object is possibly 'null'.
+      this.contextReq.character = +(localStorage.getItem("characterId"));
+    }
 
-    this.contextReq.description = "";
     if (this.isFirst == true) {
       this.contextReq.description = "Este es el primer parrafo de la aventura ambientada en el Imperio Incaico"
+    } else {
+      this.contextReq.description = description;
     }
-    // @ts-ignore: Object is possibly 'null'.
-    this.contextReq.character = +localStorage.getItem("characterId");
+
     await this.roleplayService.postContextOriginal('', this.contextReq).toPromise().then(
       res => {
         console.log("text_generated:", res);
         this.output_text = res?.description
       }
     )
-    this.contextReq.description = "";
 
     this.loading = true;
     this.isFirst = false;
+    this.contextReq.description = '';
+    console.log("NO SE ESTA RESETEANDOOO")
   }
 
 }

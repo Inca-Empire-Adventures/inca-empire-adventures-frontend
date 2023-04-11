@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { CharacterSelectionComponent } from './pages/character-selection/character-selection.component';
 import { NameSelectionComponent } from './pages/name-selection/name-selection.component';
 import { RoleplayGameComponent } from './pages/roleplay-game/roleplay-game.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { LoginComponent } from './pages/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -42,6 +42,7 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
   ],
   providers: [
@@ -50,4 +51,4 @@ const routes: Routes = [
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

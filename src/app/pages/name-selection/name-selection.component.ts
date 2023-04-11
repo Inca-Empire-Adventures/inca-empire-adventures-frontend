@@ -53,16 +53,6 @@ export class NameSelectionComponent implements OnInit {
         console.log("ERROR: ", err)
       }
     );
-    // @ts-ignore: Object is possibly 'null'.
-    /* this.adventure.character= +localStorage.getItem("characterId");
-     this.adventure.description="Aventura";
- 
-     this.adventureService.postAdventure("", this.adventure).subscribe(
-       res => {
-       },
-       err => {
-         console.log("ERROR: ", err)
-       }
-     );*/
+
   }
 }

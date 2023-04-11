@@ -17,9 +17,9 @@
                 <input class="inpx" type="text" [(ngModel)]="contextReq.description">
             </mat-form-field>
         </fieldset>
-        <div *ngIf="loading" class="sendbutton">
-            <button id="btn" (click)="postContext();" routerLink="roleplay-game"><img class="send" src="{{imageButton}}"
-                    width="265px">
+        <div class="sendbutton">
+            <button id="btn" (click)="postContext(contextReq.description);" routerLink="roleplay-game"><img class="send"
+                    src="{{imageButton}}" width="265px">
             </button>
 
         </div>
