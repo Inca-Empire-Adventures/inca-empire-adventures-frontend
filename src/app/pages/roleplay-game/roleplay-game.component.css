@@ -115,16 +115,21 @@ h1 {
 }
 
 mat-form-field-infix {
-    width: -180px !important;
+    width: 500px !important;
 }
 
 .mat-form-field-infix {
-    width: -180px !important;
+    width: 500px !important;
+}
+
+.inpx {
+    width: 500px !important;
 }
 
 .mat-form-field {
     display: block !important;
     text-align: center;
+    width: 500px !important;
 }
 
 .prompt {
@@ -144,11 +149,11 @@ input {
 
 
 input {
-    width: 490px;
+    width: 500px;
     height: 60px;
     border-radius: 20px;
     font-size: 25px;
-
+    overflow: visible !important;
 }
 
 #btn {
@@ -177,5 +182,24 @@ input {
 }
 
 .sendbutton {
+    text-align: center;
+}
+
+.mat-mdc-form-field-flex {
+    display: inline-flex;
+    width: 500px;
+}
+
+.mat-mdc-form-field-flex {
+    display: inline-flex;
+    width: 500px;
+}
+
+.mdc-text-field {
+    width: 500px !important;
+}
+
+.udx {
+    display: flex;
     text-align: center;
 }

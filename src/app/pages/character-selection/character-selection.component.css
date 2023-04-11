@@ -354,4 +354,7 @@ h3 {
     height: 40px !important;
     width: 120px !important;
     text-align-last: center;
+    background-color: #424242;
+    color: white !important;
+    font-weight: bold;
 }

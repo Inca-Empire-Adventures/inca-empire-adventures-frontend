@@ -43,4 +43,93 @@
 
 .custom-input input {
     height: 40px !important;
+    background-color: transparent !important;
+}
+
+.custom-input input::placeholder {
+    background-color: transparent !important;
+}
+
+.custom-input input::selection {
+    background-color: transparent !important;
+}
+
+.custom-input input::target-text {
+    background-color: transparent !important;
+}
+
+.custom-input input::content {
+    background-color: transparent !important;
+}
+
+.custom-input input::marker {
+    background-color: transparent !important;
+}
+
+.custom-input input::before {
+    background-color: transparent !important;
+}
+
+.custom-input input:active {
+    background-color: transparent !important;
+}
+
+.custom-input input:blank {
+    background-color: transparent !important;
+}
+
+.custom-input input:current {
+    background-color: transparent !important;
+}
+
+.custom-input input:default {
+    background-color: transparent !important;
+}
+
+.custom-input input:empty {
+    background-color: transparent !important;
+}
+
+.custom-input input:enabled {
+    background-color: transparent !important;
+}
+
+.custom-input input:focus {
+    background-color: transparent !important;
+}
+
+.custom-input input:hover {
+    background-color: transparent !important;
+}
+
+.custom-input input:focus-visible {
+    background-color: transparent !important;
+}
+
+.custom-input input:placeholder-shown {
+    background-color: transparent !important;
+}
+
+.custom-input input:required {
+    background-color: transparent !important;
+}
+
+.custom-input input:invalid {
+    background-color: transparent !important;
+}
+
+input {
+    background-color: transparent !important;
+
+}
+
+input:-internal-autofill-selected {
+    appearance: menulist-button;
+    background-image: none !important;
+    background-color: transparent !important;
+    color: transparent !important;
+}
+
+mat-label {
+    background-color: transparent;
 }

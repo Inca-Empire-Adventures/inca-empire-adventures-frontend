@@ -13,11 +13,11 @@
             </div>
         </fieldset>
         <fieldset *ngIf="loading" class="prompt">
-            <mat-form-field appearance="fill">
-                <input type="text" [(ngModel)]="contextReq.description">
+            <mat-form-field class="udx" appearance="fill">
+                <input class="inpx" type="text" [(ngModel)]="contextReq.description">
             </mat-form-field>
         </fieldset>
-        <div class="sendbutton">
+        <div *ngIf="loading" class="sendbutton">
             <button id="btn" (click)="postContext();" routerLink="roleplay-game"><img class="send" src="{{imageButton}}"
                     width="265px">
             </button>

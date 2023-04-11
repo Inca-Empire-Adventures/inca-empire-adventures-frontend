@@ -11,10 +11,28 @@
     <input type="hidden" #selection>
 
     <div class="card-container">
-        <div *ngFor="let character of characters" class="characterGroup">
-            <img [src]="images[character.id]" width="200" center alt="name">
-            <button class="card card-small" (click)="getCharacterN(character.id)">
-                <span>{{character.characterName}}</span>
+        <div class="characterGroup">
+            <img src="/assets/DiosSol.png" width="200" center alt="name">
+            <button class="card card-small" (click)="getCharacterN(1)">
+                <span>God of Sun</span>
+            </button>
+        </div>
+        <div class="characterGroup">
+            <img src="/assets/DiosMuerte.png" width="200" center alt="name">
+            <button class="card card-small" (click)="getCharacterN(2)">
+                <span>God of Death</span>
+            </button>
+        </div>
+        <div class="characterGroup">
+            <img src="/assets/DiosaLuna.png" width="200" center alt="name">
+            <button class="card card-small" (click)="getCharacterN(3)">
+                <span>God of Moon</span>
+            </button>
+        </div>
+        <div class="characterGroup">
+            <img src="/assets/DiosaTierra.png" width="200" center alt="name">
+            <button class="card card-small" (click)="getCharacterN(4)">
+                <span>God of Earth</span>
             </button>
         </div>
     </div>

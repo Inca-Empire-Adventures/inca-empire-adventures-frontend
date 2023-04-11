@@ -28,6 +28,7 @@ export class LoginComponent {
           // Guardar el token en el almacenamiento local
           sessionStorage.setItem('tokenAccess', response.access);
           sessionStorage.setItem('tokenRefresh', response.refresh);
+          sessionStorage.setItem('username', this.credenciales.username);
           this.router.navigate(['/']);
         },
         (err) => {
