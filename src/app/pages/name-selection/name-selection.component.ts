@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Character } from 'src/app/shared/model/character';
 import { CharacterReq } from 'src/app/shared/model/characterReq';
 import { Statistics } from 'src/app/shared/model/statistics';
@@ -27,7 +27,8 @@ export class NameSelectionComponent implements OnInit {
     private _activatedRoute: ActivatedRoute,
     private userService: UserService,
     private characterSelectionService: CharacterSelectionService,
-    private adventureService: AdventureService
+    private adventureService: AdventureService,
+    private router: Router
   ) {
 
   }
@@ -48,6 +49,7 @@ export class NameSelectionComponent implements OnInit {
         console.log("stats: ", res);
         this.characterRes = res;
         localStorage.setItem("characterId", this.characterRes.id.toString());
+        this.router.navigate([`name-selection/${this.characterRes.id}/roleplay-game`]);
       },
       err => {
         console.log("ERROR: ", err)
