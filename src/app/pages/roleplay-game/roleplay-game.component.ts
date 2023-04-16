@@ -4,7 +4,7 @@ import { Character } from 'src/app/shared/model/character';
 import { Context } from 'src/app/shared/model/context';
 import { ContextReq } from 'src/app/shared/model/contextReq';
 import { RolePlayService } from 'src/app/shared/services/role-play.service';
-
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'app-roleplay-game',
   templateUrl: './roleplay-game.component.html',
@@ -17,9 +17,27 @@ export class RoleplayGameComponent implements OnInit {
   contextReq: Adventure = new Adventure();
   isFirst: boolean = true;
   imageButton = 'assets/sendButton.png'
+  d20!: number;
+  dialogOpen: boolean = false;
   constructor(
-    private roleplayService: RolePlayService
+    private roleplayService: RolePlayService,
+    public dialog: MatDialog
   ) { }
+
+
+  openDialog(): void {
+    this.dialogOpen = true;
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '600px',
+      height: '400px',
+      panelClass: 'custom-dialog-container'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.dialogOpen = false;
+    });
+  }
 
   ngOnInit() {
     this.inicio();
@@ -31,6 +49,7 @@ export class RoleplayGameComponent implements OnInit {
   }
 
   async postContext(description: string) {
+    this.loading = false;
     if (localStorage.getItem("characterId") != null) {
       // @ts-ignore: Object is possibly 'null'.
       this.contextReq.character = +(localStorage.getItem("characterId"));
@@ -52,7 +71,29 @@ export class RoleplayGameComponent implements OnInit {
     this.loading = true;
     this.isFirst = false;
     this.contextReq.description = '';
-    console.log("NO SE ESTA RESETEANDOOO")
+  }
+
+  random() {
+    this.d20 = Math.floor(Math.random() * 20) + 1;
+  }
+  stats() {
+
+  }
+
+
+}
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: 'dialog.component.html',
+})
+export class DialogOverviewExampleDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+  ) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }

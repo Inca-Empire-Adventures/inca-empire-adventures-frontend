@@ -63,11 +63,12 @@ input {
     }
 
     img {
-        width: 90%;
+        min-width: 20%;
+        max-width: 90%;
     }
 
     input {
-        width: 85%;
+        width: 80%;
     }
 
 
@@ -107,7 +108,8 @@ h1 {
 .roleplay {
     background: url(src\assets\roleplaybackground.jpg);
     margin: 50px;
-    height: 600px;
+    min-height: 600px;
+    max-height: 1200px;
     margin-top: 5px;
     border-radius: 50px;
     border: solid;
@@ -115,27 +117,45 @@ h1 {
 }
 
 mat-form-field-infix {
-    width: 500px !important;
+    width: 300px !important;
 }
 
-.mat-form-field-infix {
-    width: 500px !important;
+::ng-deep .mat-form-field-flex {
+    width: 102% !important;
 }
 
 .inpx {
-    width: 500px !important;
+
+    min-width: 300px;
+    max-width: 900px;
 }
 
 .mat-form-field {
     display: block !important;
     text-align: center;
-    width: 500px !important;
+
+    min-width: 300px;
+    max-width: 900px;
 }
 
 .prompt {
     text-align: center;
     border-color: transparent;
+    display: inline-block;
+    min-width: 600px;
+    max-width: 900px;
+
 }
+
+.prompt2 {
+    text-align: center;
+    border-color: transparent;
+    display: inline-block;
+    min-width: 50px;
+    max-width: 600px;
+
+}
+
 
 input {
     border-color: black;
@@ -149,7 +169,7 @@ input {
 
 
 input {
-    width: 500px;
+    /*width: 500px;*/
     height: 60px;
     border-radius: 20px;
     font-size: 25px;
@@ -202,4 +222,38 @@ input {
 .udx {
     display: flex;
     text-align: center;
+}
+
+.d20 {
+    display: inline;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.imgdado {
+    width: 140px;
+}
+
+.row {
+    text-align-last: center;
+    text-align: center;
+}
+
+.centered {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.custom-dialog-container .mat-dialog-container {
+    text-align: -webkit-center;
+}
+
+::ng-deep .cdk-overlay-container {
+    /* Do you changes here */
+    position: inherit;
+    z-index: 1000;
+    text-align: -webkit-center;
 }

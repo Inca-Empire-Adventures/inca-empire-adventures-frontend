@@ -12,17 +12,44 @@
                 <h3>{{output_text}}</h3>
             </div>
         </fieldset>
-        <fieldset *ngIf="loading" class="prompt">
-            <mat-form-field class="udx" appearance="fill">
-                <input class="inpx" type="text" [(ngModel)]="contextReq.description">
-            </mat-form-field>
-        </fieldset>
-        <div class="sendbutton">
-            <button id="btn" (click)="postContext(contextReq.description);" routerLink="roleplay-game"><img class="send"
-                    src="{{imageButton}}" width="265px">
-            </button>
+        <div class="row">
+            <fieldset *ngIf="loading" class="prompt">
+                <mat-form-field class="udx" appearance="fill">
+                    <input class="inpx" type="text" [(ngModel)]="contextReq.description">
+                </mat-form-field>
+                <div class="sendbutton">
+                    <button id="btn" (click)="postContext(contextReq.description);" routerLink="roleplay-game"><img
+                            class="send" src="{{imageButton}}" width="265px">
+                    </button>
+                </div>
+            </fieldset>
+            <fieldset class="prompt2">
+                <div class="d20">
+                    <img class="imgdado" src="/assets/d20.png" width="200" center alt="name">
+                    <div class="centered">{{d20}}</div>
+                </div>
+
+                <div>
+                    <button class="card card-small" (click)="random()">
+                        <span>Lanzar Dado</span>
+                    </button>
+                </div>
+
+            </fieldset>
+            <fieldset class="prompt2">
+                <div class="stats">
+                    <img class="imgdado" src="/assets/stats.png" width="200" center alt="name">
+                </div>
+                <div>
+                    <button *ngIf="!dialogOpen" class="card card-small" (click)="openDialog()">
+                        <span>Estadísticas</span>
+                    </button>
+                </div>
+
+            </fieldset>
 
         </div>
+
 
 
     </fieldset>

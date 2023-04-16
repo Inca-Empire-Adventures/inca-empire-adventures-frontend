@@ -16,7 +16,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './shared/services/auth/auth-interceptor';
 import { AuthGuard } from './shared/services/auth/auth-guard';
-
+import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from "@angular/material/dialog";
+import { MatCardModule } from "@angular/material/card"
 const routes: Routes = [
   { path: '', component: CharacterSelectionComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
@@ -36,19 +37,36 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    MatCardModule,
+    MatDialogModule,
+    MatButtonModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
+  ],
+  exports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatDialogModule,
+    MatButtonModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [
     HttpClientModule,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } }
   ],
   bootstrap: [AppComponent],
+  entryComponents: []
 })
 export class AppModule { }
