@@ -15,7 +15,7 @@
         <div class="row">
             <fieldset *ngIf="loading" class="prompt">
                 <mat-form-field class="udx" appearance="fill">
-                    <input class="inpx" type="text" [(ngModel)]="contextReq.description">
+                    <input matInput class="inpx" type="text" [(ngModel)]="contextReq.description">
                 </mat-form-field>
                 <div class="sendbutton">
                     <button id="btn" (click)="postContext(contextReq.description);" routerLink="roleplay-game"><img
@@ -48,7 +48,7 @@
 
             </fieldset>
 
-            <fieldset *ngIf="personajeActual() == 1" class="prompt2">
+            <fieldset *ngIf="personaje == 1" class="prompt2">
                 <div class="personaje">
                     <img class="imgpersonaje" src="/assets/DiosSol.png" width="200" center alt="name">
                 </div>
@@ -56,7 +56,7 @@
                     <span>{{characterName}}</span>
                 </div>
             </fieldset>
-            <fieldset *ngIf="personajeActual() == 2" class="prompt2">
+            <fieldset *ngIf="personaje == 2" class="prompt2">
                 <div class="personaje">
                     <img class="imgpersonaje" src="/assets/DiosMuerte.png" width="200" center alt="name">
                 </div>
@@ -64,7 +64,7 @@
                     <span>{{characterName}}</span>
                 </div>
             </fieldset>
-            <fieldset *ngIf="personajeActual() == 3" class="prompt2">
+            <fieldset *ngIf="personaje == 3" class="prompt2">
                 <div class="personaje">
                     <img class="imgpersonaje" src="/assets/DiosaLuna.png" width="200" center alt="name">
                 </div>
@@ -72,7 +72,7 @@
                     <span>{{characterName}}</span>
                 </div>
             </fieldset>
-            <fieldset *ngIf="personajeActual() == 4" class="prompt2">
+            <fieldset *ngIf="personaje == 4" class="prompt2">
                 <div class="personaje">
                     <img class="imgpersonaje" src="/assets/DiosaTierra.png" width="200" center alt="name">
                 </div>

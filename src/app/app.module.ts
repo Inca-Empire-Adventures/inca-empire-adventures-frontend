@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharacterSelectionComponent } from './pages/character-selection/character-selection.component';
 import { NameSelectionComponent } from './pages/name-selection/name-selection.component';
-import { RoleplayGameComponent } from './pages/roleplay-game/roleplay-game.component';
+import { DialogOverviewExampleDialog, RoleplayGameComponent } from './pages/roleplay-game/roleplay-game.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { LoginComponent } from './pages/login/login.component';
@@ -67,6 +67,6 @@ const routes: Routes = [
     { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } }
   ],
   bootstrap: [AppComponent],
-  entryComponents: []
+  entryComponents: [DialogOverviewExampleDialog]
 })
 export class AppModule { }

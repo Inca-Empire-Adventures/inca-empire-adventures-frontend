@@ -101,7 +101,7 @@ h1 {
 }
 
 .story {
-    margin: 80px;
+    margin: 50px;
     border-radius: 50px;
     border: solid;
     border-color: transparent;
@@ -129,10 +129,10 @@ mat-form-field-infix {
 }
 
 .inpx {
-
     min-width: 300px;
     max-width: 900px;
 }
+
 
 .mat-form-field {
     display: block !important;
@@ -265,7 +265,7 @@ input {
 
 ::ng-deep .cdk-overlay-container {
     /* Do you changes here */
-    position: inherit;
+    position: fixed;
     z-index: 1000;
     text-align: -webkit-center;
 }
