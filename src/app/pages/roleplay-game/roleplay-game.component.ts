@@ -44,7 +44,8 @@ export class RoleplayGameComponent implements OnInit {
         dexterity: this.statistics.dexterity,
         intelligence: this.statistics.intelligence,
         strength: this.statistics.strength,
-        wisdom: this.statistics.wisdom
+        wisdom: this.statistics.wisdom,
+        personaje: this.personaje,
       }
     });
 

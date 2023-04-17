@@ -6,9 +6,11 @@
   <p>Inteligencia: {{data.intelligence}}</p>
   <p>Fuerza: {{data.strength}}</p>
   <p>Sabiduría: {{data.wisdom}}</p>
+  <p *ngIf="data.personaje==1  || data.personaje==3">Vida: 250</p>
+  <p *ngIf="data.personaje==2  || data.personaje==4">Vida: 300</p>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cerrar</button>
+  <button (click)="onNoClick()">Cerrar</button>
 </div>
 
 <style>

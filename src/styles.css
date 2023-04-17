@@ -34,3 +34,7 @@ html {
 .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple {
     border-bottom-color: transparent;
 }
+
+.mat-mdc-dialog-actions.mdc-dialog__actions {
+    justify-content: center;
+}

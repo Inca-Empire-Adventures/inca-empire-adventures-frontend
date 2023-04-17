@@ -18,6 +18,7 @@ import { AuthInterceptor } from './shared/services/auth/auth-interceptor';
 import { AuthGuard } from './shared/services/auth/auth-guard';
 import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from "@angular/material/dialog";
 import { MatCardModule } from "@angular/material/card"
+import { CommonModule } from '@angular/common';
 const routes: Routes = [
   { path: '', component: CharacterSelectionComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
@@ -33,10 +34,12 @@ const routes: Routes = [
     NameSelectionComponent,
     RoleplayGameComponent,
     LoginComponent,
+    DialogOverviewExampleDialog,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    CommonModule,
     MatCardModule,
     MatDialogModule,
     MatButtonModule,
@@ -51,6 +54,7 @@ const routes: Routes = [
   exports: [
     BrowserModule,
     BrowserAnimationsModule,
+    CommonModule,
     MatCardModule,
     MatDialogModule,
     MatButtonModule,
