@@ -19,6 +19,8 @@ export class RoleplayGameComponent implements OnInit {
   imageButton = 'assets/sendButton.png'
   d20!: number;
   dialogOpen: boolean = false;
+  personaje: number = 0;
+  characterName!: string;
   constructor(
     private roleplayService: RolePlayService,
     public dialog: MatDialog
@@ -30,7 +32,8 @@ export class RoleplayGameComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '600px',
       height: '400px',
-      panelClass: 'custom-dialog-container'
+      panelClass: 'custom-dialog-container',
+
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -41,6 +44,8 @@ export class RoleplayGameComponent implements OnInit {
 
   ngOnInit() {
     this.inicio();
+    // @ts-ignore: Object is possibly 'null'.
+    this.characterName = localStorage.getItem("characterName");
   }
 
   async inicio() {
@@ -76,8 +81,12 @@ export class RoleplayGameComponent implements OnInit {
   random() {
     this.d20 = Math.floor(Math.random() * 20) + 1;
   }
-  stats() {
+  personajeActual() {
+    if (1) {
+      this.personaje = 1
+    }
 
+    return this.personaje;
   }
 
 

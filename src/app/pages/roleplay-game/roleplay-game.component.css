@@ -40,6 +40,10 @@ img {
     width: 5%
 }
 
+.imgpersonaje {
+    width: 200px !important;
+}
+
 input {
     width: 490px;
     height: 60px;
@@ -251,9 +255,29 @@ input {
     text-align: -webkit-center;
 }
 
+.custom-dialog-container .mat-dialog-container .mat-dialog-surface {
+    border-radius: 50px;
+}
+
+.mdc-dialog__surface {
+    border-radius: 50px;
+}
+
 ::ng-deep .cdk-overlay-container {
     /* Do you changes here */
     position: inherit;
     z-index: 1000;
     text-align: -webkit-center;
+}
+
+::ng-deep .mat-dialog-container {
+    border-radius: 50px;
+}
+
+::ng-deep .mat-dialog-container .mat-dialog-surface {
+    border-radius: 50px;
+}
+
+.char {
+    font-weight: bold;
 }

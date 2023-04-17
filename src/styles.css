@@ -1,7 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 html {
     background: black;
-
 }
 
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+.mat-mdc-dialog-container {
+    --mdc-dialog-container-color: transparent;
+    background-image: url("\assets\roleplaybackground.jpg");
+    --mdc-dialog-with-divider-divider-color: rgba(0, 0, 0, 0.12);
+    --mdc-dialog-subhead-color: rgba(0, 0, 0, 0.87);
+    --mdc-dialog-supporting-text-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50px;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+    border-radius: 50px !important;
+}
+
+.cdk-global-overlay-wrapper {
+    background-color: black;
+}

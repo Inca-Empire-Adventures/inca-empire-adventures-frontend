@@ -37,7 +37,7 @@
 
             </fieldset>
             <fieldset class="prompt2">
-                <div class="stats">
+                <div *ngIf="!dialogOpen" class="stats">
                     <img class="imgdado" src="/assets/stats.png" width="200" center alt="name">
                 </div>
                 <div>
@@ -46,6 +46,39 @@
                     </button>
                 </div>
 
+            </fieldset>
+
+            <fieldset *ngIf="personajeActual() == 1" class="prompt2">
+                <div class="personaje">
+                    <img class="imgpersonaje" src="/assets/DiosSol.png" width="200" center alt="name">
+                </div>
+                <div class="char">
+                    <span>{{characterName}}</span>
+                </div>
+            </fieldset>
+            <fieldset *ngIf="personajeActual() == 2" class="prompt2">
+                <div class="personaje">
+                    <img class="imgpersonaje" src="/assets/DiosMuerte.png" width="200" center alt="name">
+                </div>
+                <div class="char">
+                    <span>{{characterName}}</span>
+                </div>
+            </fieldset>
+            <fieldset *ngIf="personajeActual() == 3" class="prompt2">
+                <div class="personaje">
+                    <img class="imgpersonaje" src="/assets/DiosaLuna.png" width="200" center alt="name">
+                </div>
+                <div class="char">
+                    <span>{{characterName}}</span>
+                </div>
+            </fieldset>
+            <fieldset *ngIf="personajeActual() == 4" class="prompt2">
+                <div class="personaje">
+                    <img class="imgpersonaje" src="/assets/DiosaTierra.png" width="200" center alt="name">
+                </div>
+                <div class="char">
+                    <span>{{characterName}}</span>
+                </div>
             </fieldset>
 
         </div>

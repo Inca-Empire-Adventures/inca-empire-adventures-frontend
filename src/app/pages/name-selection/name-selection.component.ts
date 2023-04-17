@@ -49,6 +49,7 @@ export class NameSelectionComponent implements OnInit {
         console.log("stats: ", res);
         this.characterRes = res;
         localStorage.setItem("characterId", this.characterRes.id.toString());
+        localStorage.setItem("characterName", this.characterRes.characterName);
         this.router.navigate([`name-selection/${this.characterRes.id}/roleplay-game`]);
       },
       err => {
