@@ -15,6 +15,7 @@ import { Statistics } from 'src/app/shared/model/statistics';
 export class RoleplayGameComponent implements OnInit {
   [x: string]: any;
   output_text: string | undefined;
+  options: string[] = [];
   loading: boolean = false;
   contextReq: Adventure = new Adventure();
   isFirst: boolean = true;
@@ -30,7 +31,9 @@ export class RoleplayGameComponent implements OnInit {
     private statisticsService: StatisticsService,
     public dialog: MatDialog
   ) { }
-
+  opcionClick(des: string) {
+    this.contextReq.description = des;
+  }
 
   openDialog(): void {
     this.dialogOpen = true;
@@ -104,7 +107,10 @@ export class RoleplayGameComponent implements OnInit {
     await this.roleplayService.postContextOriginal('', this.contextReq).toPromise().then(
       res => {
         console.log("text_generated:", res);
-        this.output_text = res?.description
+        this.output_text = res?.description;
+        this.options = [];
+        this.options = res?.options!;
+        console.log("OPTIONS", this.options);
       }
     )
 

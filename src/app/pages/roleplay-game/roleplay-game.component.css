@@ -27,7 +27,15 @@
 .box2 {
     display: flex;
     align-items: center;
+}
 
+.opts {
+    display: flex;
+    align-items: center;
+}
+
+.op {
+    text-align-last: start;
 }
 
 .box22 {
@@ -148,7 +156,7 @@ mat-form-field-infix {
     border-color: transparent;
     display: inline-block;
     min-width: 600px;
-    max-width: 900px;
+    max-width: 600px;
 
 }
 
