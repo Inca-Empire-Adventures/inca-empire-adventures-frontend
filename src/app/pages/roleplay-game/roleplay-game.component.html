@@ -12,17 +12,96 @@
                 <h3>{{output_text}}</h3>
             </div>
         </fieldset>
-        <fieldset *ngIf="loading" class="prompt">
-            <mat-form-field appearance="fill">
-                <input type="text" [(ngModel)]="contextReq.description">
-            </mat-form-field>
-        </fieldset>
-        <div class="sendbutton">
-            <button id="btn" (click)="postContext();" routerLink="roleplay-game"><img class="send" src="{{imageButton}}"
-                    width="265px">
-            </button>
+        <div class="row">
+            <fieldset *ngIf="loading" class="prompt">
+                <div>
+                    <h2>Opciones:</h2>
+                </div>
+                <div *ngIf="loading" class="opts">
+                    <button mat-button class="op" *ngIf="options[0]"
+                        onclick="opcionClick(options[0])">•{{options[0]}}</button>
+                </div>
+                <div *ngIf="loading" class="opts">
+                    <button mat-button class="op" *ngIf="options[1]"
+                        onclick="opcionClick(options[1])">•{{options[1]}}</button>
+                </div>
+                <div *ngIf="loading" class="opts">
+                    <button mat-button class="op" *ngIf="options[2]"
+                        onclick="opcionClick(options[2])">•{{options[2]}}</button>
+                </div>
+                <div *ngIf="loading" class="opts">
+                    <button mat-button class="op" *ngIf="options[3]"
+                        onclick="opcionClick(options[3])">•{{options[3]}}</button>
+                </div>
+                <mat-form-field class="udx" appearance="fill">
+                    <input matInput class="inpx" type="text" [(ngModel)]="contextReq.description">
+                </mat-form-field>
+                <div class="sendbutton">
+                    <button id="btn" (click)="postContext(contextReq.description);" routerLink="roleplay-game"><img
+                            class="send" src="{{imageButton}}" width="265px">
+                    </button>
+                </div>
+            </fieldset>
+            <fieldset class="prompt2">
+                <div class="d20">
+                    <img class="imgdado" src="/assets/d20.png" width="200" center alt="name">
+                    <div class="centered">{{d20}}</div>
+                </div>
+
+                <div>
+                    <button class="card card-small" (click)="random()">
+                        <span>Lanzar Dado</span>
+                    </button>
+                </div>
+
+            </fieldset>
+            <fieldset class="prompt2">
+                <div *ngIf="!dialogOpen" class="stats">
+                    <img class="imgdado" src="/assets/stats.png" width="200" center alt="name">
+                </div>
+                <div>
+                    <button *ngIf="!dialogOpen" class="card card-small" (click)="openDialog()">
+                        <span>Estadísticas</span>
+                    </button>
+                </div>
+
+            </fieldset>
+
+            <fieldset *ngIf="personaje == 1" class="prompt2">
+                <div class="personaje">
+                    <img class="imgpersonaje" src="/assets/DiosSol.png" width="200" center alt="name">
+                </div>
+                <div class="char">
+                    <span>{{characterName}}</span>
+                </div>
+            </fieldset>
+            <fieldset *ngIf="personaje == 2" class="prompt2">
+                <div class="personaje">
+                    <img class="imgpersonaje" src="/assets/DiosMuerte.png" width="200" center alt="name">
+                </div>
+                <div class="char">
+                    <span>{{characterName}}</span>
+                </div>
+            </fieldset>
+            <fieldset *ngIf="personaje == 3" class="prompt2">
+                <div class="personaje">
+                    <img class="imgpersonaje" src="/assets/DiosaLuna.png" width="200" center alt="name">
+                </div>
+                <div class="char">
+                    <span>{{characterName}}</span>
+                </div>
+            </fieldset>
+            <fieldset *ngIf="personaje == 4" class="prompt2">
+                <div class="personaje">
+                    <img class="imgpersonaje" src="/assets/DiosaTierra.png" width="200" center alt="name">
+                </div>
+                <div class="char">
+                    <span>{{characterName}}</span>
+                </div>
+            </fieldset>
 
         </div>
+
 
 
     </fieldset>

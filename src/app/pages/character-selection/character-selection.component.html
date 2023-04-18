@@ -11,10 +11,28 @@
     <input type="hidden" #selection>
 
     <div class="card-container">
-        <div *ngFor="let character of characters" class="characterGroup">
-            <img [src]="images[character.id]" width="200" center alt="name">
-            <button class="card card-small" (click)="getCharacterN(character.id)">
-                <span>{{character.characterName}}</span>
+        <div class="characterGroup">
+            <img src="/assets/DiosSol.png" width="200" center alt="name">
+            <button class="card card-small" (click)="getCharacterN(1)">
+                <span>God of Sun</span>
+            </button>
+        </div>
+        <div class="characterGroup">
+            <img src="/assets/DiosMuerte.png" width="200" center alt="name">
+            <button class="card card-small" (click)="getCharacterN(2)">
+                <span>God of Death</span>
+            </button>
+        </div>
+        <div class="characterGroup">
+            <img src="/assets/DiosaLuna.png" width="200" center alt="name">
+            <button class="card card-small" (click)="getCharacterN(3)">
+                <span>God of Moon</span>
+            </button>
+        </div>
+        <div class="characterGroup">
+            <img src="/assets/DiosaTierra.png" width="200" center alt="name">
+            <button class="card card-small" (click)="getCharacterN(4)">
+                <span>God of Earth</span>
             </button>
         </div>
     </div>
@@ -29,11 +47,21 @@
                 <h3>Ethnicity:</h3>
                 <h3>Profession:</h3>
                 <h3>Equipment:</h3>
+                <h3>Health:</h3>
+                <h3>Armor:</h3>
             </div>
             <div class="column2">
                 <h3>{{race}}</h3>
                 <h3>{{profession}}</h3>
                 <h3>{{equipment}}</h3>
+                <h3 *ngIf="idCharacterSelected==1">250</h3>
+                <h3 *ngIf="idCharacterSelected==2">300</h3>
+                <h3 *ngIf="idCharacterSelected==3">250</h3>
+                <h3 *ngIf="idCharacterSelected==4">300</h3>
+                <h3 *ngIf="idCharacterSelected==1">Light</h3>
+                <h3 *ngIf="idCharacterSelected==2">Medium</h3>
+                <h3 *ngIf="idCharacterSelected==3">Heavy</h3>
+                <h3 *ngIf="idCharacterSelected==4">Medium</h3>
             </div>
         </div>
         <div class="detail">

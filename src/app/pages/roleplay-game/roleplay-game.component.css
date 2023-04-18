@@ -7,6 +7,7 @@
     width: 100%;
     height: 100%;
     /*display: flex;*/
+    min-width: 750px;
     flex-direction: row;
     align-content: center;
     gap: 30px;
@@ -26,7 +27,16 @@
 .box2 {
     display: flex;
     align-items: center;
+}
 
+.opts {
+    display: flex;
+    align-items: center;
+}
+
+.op {
+    text-align-last: start;
+    text-align: justify;
 }
 
 .box22 {
@@ -40,9 +50,13 @@ img {
     width: 5%
 }
 
+.imgpersonaje {
+    width: 200px !important;
+}
+
 input {
     width: 490px;
-    height: 60px;
+    height: 60px !important;
     border-radius: 20px;
     font-size: 25px;
 
@@ -63,11 +77,12 @@ input {
     }
 
     img {
-        width: 90%;
+        min-width: 20%;
+        max-width: 90%;
     }
 
     input {
-        width: 85%;
+        width: 80%;
     }
 
 
@@ -96,7 +111,7 @@ h1 {
 }
 
 .story {
-    margin: 80px;
+    margin: 50px;
     border-radius: 50px;
     border: solid;
     border-color: transparent;
@@ -107,7 +122,8 @@ h1 {
 .roleplay {
     background: url(src\assets\roleplaybackground.jpg);
     margin: 50px;
-    height: 600px;
+    min-height: 600px;
+    max-height: 1200px;
     margin-top: 5px;
     border-radius: 50px;
     border: solid;
@@ -115,22 +131,45 @@ h1 {
 }
 
 mat-form-field-infix {
-    width: -180px !important;
+    width: 300px !important;
 }
 
-.mat-form-field-infix {
-    width: -180px !important;
+::ng-deep .mat-form-field-flex {
+    width: 102% !important;
 }
+
+.inpx {
+    min-width: 300px;
+    max-width: 900px;
+}
+
 
 .mat-form-field {
     display: block !important;
     text-align: center;
+
+    min-width: 300px;
+    max-width: 900px;
 }
 
 .prompt {
     text-align: center;
     border-color: transparent;
+    display: inline-block;
+    min-width: 600px;
+    max-width: 600px;
+
 }
+
+.prompt2 {
+    text-align: center;
+    border-color: transparent;
+    display: inline-block;
+    min-width: 50px;
+    max-width: 600px;
+
+}
+
 
 input {
     border-color: black;
@@ -144,11 +183,11 @@ input {
 
 
 input {
-    width: 490px;
+    /*width: 500px;*/
     height: 60px;
     border-radius: 20px;
     font-size: 25px;
-
+    overflow: visible !important;
 }
 
 #btn {
@@ -178,4 +217,86 @@ input {
 
 .sendbutton {
     text-align: center;
+}
+
+.mat-mdc-form-field-flex {
+    display: inline-flex;
+    width: 500px;
+}
+
+.mat-mdc-form-field-flex {
+    display: inline-flex;
+    width: 500px;
+}
+
+.mdc-text-field {
+    width: 500px !important;
+}
+
+.udx {
+    display: flex;
+    text-align: center;
+}
+
+.d20 {
+    display: inline;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.imgdado {
+    width: 140px;
+}
+
+.row {
+    text-align-last: center;
+    text-align: center;
+}
+
+.centered {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.custom-dialog-container .mat-dialog-container {
+    text-align: -webkit-center;
+}
+
+.custom-dialog-container .mat-dialog-container .mat-dialog-surface {
+    border-radius: 50px;
+}
+
+.mdc-dialog__surface {
+    border-radius: 50px;
+}
+
+::ng-deep .cdk-overlay-container {
+    /* Do you changes here */
+    position: fixed;
+    z-index: 1000;
+    text-align: -webkit-center;
+}
+
+::ng-deep .mat-dialog-container {
+    border-radius: 50px;
+}
+
+::ng-deep .mat-dialog-container .mat-dialog-surface {
+    border-radius: 50px;
+}
+
+.char {
+    font-weight: bold;
+}
+
+.container::-webkit-scrollbar {
+    width: 8px;
+    /* Tamaño del scroll en vertical */
+    height: 8px;
+    /* Tamaño del scroll en horizontal */
+    display: none;
+    /* Ocultar scroll */
 }

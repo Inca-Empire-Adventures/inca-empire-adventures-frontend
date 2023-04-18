@@ -18,11 +18,12 @@ export class CharacterSelectionComponent implements OnInit {
   idCharacterSelected!: number;
   title = 'INCA EMPIRE ADVENTURES';
   characters: Character[] = [];
+  character: Character = new Character;
   statistics: Statistics[] = [];
   professions: Profession[] = [];
   images: string[];
   race!: string;
-  raceId!: number;
+  raceId!: string;
   profession!: string;
   equipment!: string;
   strength!: number;
@@ -52,7 +53,7 @@ export class CharacterSelectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllCharacters();
+    //this.getAllCharacters();
     this.getAllStatistics();
     this.getAllProfessions();
     //this.listenerCambios.emit({ etapa: ProcesoEnum.NAMESELECTION });
@@ -74,7 +75,7 @@ export class CharacterSelectionComponent implements OnInit {
       res => {
         let data: Statistics[] = res;
         this.statistics = data;
-        console.log("DATA: ", data);
+        console.log("DATA stat: ", data);
       }
     )
   }
@@ -127,26 +128,38 @@ export class CharacterSelectionComponent implements OnInit {
     console.log("wisdom:", this.statisticsRequest.wisdom);
     console.log("constitucion:", this.statisticsRequest.constitucion);
 
-    this.charisma = this.statisticsRequest.charisma + this.statistics[id - 1].charisma;
-    this.constitution = this.statisticsRequest.constitucion + this.statistics[id - 1].constitucion;
-    this.dexterty = this.statisticsRequest.dexterity + this.statistics[id - 1].dexterity;
-    this.intelligence = this.statisticsRequest.intelligence + this.statistics[id - 1].intelligence;
-    this.strength = this.statisticsRequest.strength + this.statistics[id - 1].strength;
-    this.wisdom = this.statisticsRequest.wisdom + this.statistics[id - 1].wisdom;
-    console.log("el ethnicity es: ", this.race)
+    this.charisma = this.statisticsRequest.charisma;
+    this.constitution = this.statisticsRequest.constitucion;
+    this.dexterty = this.statisticsRequest.dexterity;
+    this.intelligence = this.statisticsRequest.intelligence;
+    this.strength = this.statisticsRequest.strength;
+    this.wisdom = this.statisticsRequest.wisdom;
 
-    this.characterSelectionService.getAllCharacters("").subscribe(
-      res => {
-        let data: Character[] = res;
-        data.length = 4;
-        this.characters = data;
-        console.log("DATAS: ", data)
-      }
-    )
+    if (id == 1) {
+      this.strength = this.strength + 2;
+      this.dexterty = this.dexterty + 1;
+    }
+    if (id == 2) {
+      this.intelligence = this.intelligence + 1;
+      this.dexterty = this.dexterty + 2;
+    }
+    if (id == 3) {
+      this.charisma = this.charisma + 1;
+      this.constitution = this.constitution + 1;
+      this.dexterty = this.dexterty + 1;
+      this.intelligence = this.intelligence + 1;
+      this.strength = this.strength + 1;
+      this.wisdom = this.wisdom + 1;
+    }
+    if (id == 4) {
+      this.intelligence = this.intelligence + 2;
+      this.dexterty = this.dexterty + 1;
+    }
+    console.log("el ethnicity es: ", this.race)
   }
 
   postStatisticsContinuar() {
-    this.statisticsRequest.ethnicity = this.raceId;
+    this.statisticsRequest.ethnicityType = this.raceId;
     this.statisticsService.postStatistics("/", this.statisticsRequest).subscribe(
       res => {
         console.log("stats: ", res)
@@ -161,39 +174,35 @@ export class CharacterSelectionComponent implements OnInit {
   }
 
   getCharacterN(id: number) {
+
     this.idCharacterSelected = id;
-    this.race = this.characters[id - 1].characterName;
-    if (this.race == 'God of Sun') {
-      this.raceId = 1;
-    }
-    if (this.race == 'God of Death') {
-      this.raceId = 2;
-    }
-    if (this.race == 'God of Moon') {
-      this.raceId = 3;
-    }
-    if (this.race == 'God of Earth') {
-      this.raceId = 4;
-    }
     this.profession = this.professions[id - 1].name;
 
     if (id == 1) {
       this.setStatistics(id);
+      this.race = "God of Sun";
+      this.raceId = "GOD_OF_SUN";
       this.equipment = "Fire Cloak";
       this.hp = "120";
     }
     if (id == 2) {
       this.setStatistics(id);
+      this.race = "God of Death";
+      this.raceId = "GOD_OF_DEATH";
       this.equipment = "Death Mask";
       this.hp = "100";
     }
     if (id == 3) {
       this.setStatistics(id);
+      this.race = "God of Moon";
+      this.raceId = "GOD_OF_MOON";
       this.equipment = "Cursed Jewel";
       this.hp = "150";
     }
     if (id == 4) {
       this.setStatistics(id);
+      this.race = "God of Earth";
+      this.raceId = "GOD_OF_EARTH";
       this.equipment = "Bow";
       this.hp = "130";
     }

@@ -1,0 +1,21 @@
+<div class="mat-app-background">
+  <div class="background-image"></div>
+  <div class="mat-card">
+    <form class="mat-form">
+
+      <mat-form-field autocomplete="off" class="custom-input">
+        <mat-label>Username</mat-label>
+        <input autocomplete="off" matInput placeholder="Username" name="username" [(ngModel)]="credenciales.username"
+          required>
+      </mat-form-field>
+      <mat-form-field class="custom-input">
+        <mat-label>Password</mat-label>
+        <input class="inp2" matInput placeholder="Password" name="password" [(ngModel)]="credenciales.password"
+          type="password" required>
+      </mat-form-field>
+
+      <button mat-raised-button type="submit" (click)="isRegisterPage ? register() : login()">{{ isRegisterPage ?
+        'Register' : 'Login' }}</button>
+    </form>
+  </div>
+</div>

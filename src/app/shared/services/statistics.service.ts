@@ -17,6 +17,9 @@ export class StatisticsService {
     public getAllStatistics(route: string) {
         return this.http.get<Statistics[]>(this.createCompleteRouteContext(route));
     }
+    public getMyStatistics(route: string) {
+        return this.http.get<Statistics>(`${environment.urlAddress}/statistics/${route}`);
+    }
 
     private createCompleteRouteContext = (route: string) => {
         return `${environment.urlAddress}/${environment.serviceNameSatistics}/`;

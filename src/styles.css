@@ -1,5 +1,61 @@
 /* You can add global styles to this file, and also import other style files */
 html {
     background: black;
-    
+}
+
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+.mat-mdc-dialog-container {
+    --mdc-dialog-container-color: transparent;
+    background-image: url("\assets\roleplaybackground.jpg");
+    --mdc-dialog-with-divider-divider-color: rgba(0, 0, 0, 0.12);
+    --mdc-dialog-subhead-color: rgba(0, 0, 0, 0.87);
+    --mdc-dialog-supporting-text-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50px;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+    border-radius: 50px !important;
+}
+
+.cdk-global-overlay-wrapper {
+    background-color: black;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: transparent;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+    border-bottom-color: transparent;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple {
+    border-bottom-color: transparent;
+}
+
+.mat-mdc-dialog-actions.mdc-dialog__actions {
+    justify-content: center;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__content {
+    margin-top: 5px !important;
+}
+
+.mdc-text-field--filled .mdc-line-ripple::after {
+    border-bottom-color: transparent !important;
+}
+
+.mdc-text-field--filled .mdc-line-ripple::before {
+    border-bottom-color: transparent !important;
+}
+
+.mdc-text-field--filled .mdc-line-ripple {
+    border-bottom-color: transparent !important;
+}
+
+.mat-form-field-flex:hover .mat-form-field-outline {
+    opacity: 0;
+    transition: none !important;
 }

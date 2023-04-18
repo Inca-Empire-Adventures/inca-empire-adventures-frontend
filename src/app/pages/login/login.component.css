@@ -1,0 +1,135 @@
+.mat-app-background {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(215, 118, 218, 0.25), rgba(218, 162, 118, 0.35)), url(src/assets/fondologin.png);
+    background-size: cover;
+    filter: blur(3.5px);
+}
+
+.mat-card {
+    margin: 0 auto;
+    max-width: 400px;
+    padding: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24);
+    border-radius: 25px;
+    background: linear-gradient(45deg, rgba(249, 237, 199, 0.9), rgba(250, 230, 246, 0.9)), transparent;
+    z-index: 1;
+}
+
+.mat-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.mat-form button {
+    margin-top: 20px;
+    width: 100%;
+    color: #f0e9de;
+    background-color: #daa276;
+}
+
+.custom-input input {
+    height: 40px !important;
+    background-color: transparent !important;
+}
+
+.custom-input input::placeholder {
+    background-color: transparent !important;
+}
+
+.custom-input input::selection {
+    background-color: transparent !important;
+}
+
+.custom-input input::target-text {
+    background-color: transparent !important;
+}
+
+.custom-input input::content {
+    background-color: transparent !important;
+}
+
+.custom-input input::marker {
+    background-color: transparent !important;
+}
+
+.custom-input input::before {
+    background-color: transparent !important;
+}
+
+.custom-input input:active {
+    background-color: transparent !important;
+}
+
+.custom-input input:blank {
+    background-color: transparent !important;
+}
+
+.custom-input input:current {
+    background-color: transparent !important;
+}
+
+.custom-input input:default {
+    background-color: transparent !important;
+}
+
+.custom-input input:empty {
+    background-color: transparent !important;
+}
+
+.custom-input input:enabled {
+    background-color: transparent !important;
+}
+
+.custom-input input:focus {
+    background-color: transparent !important;
+}
+
+.custom-input input:hover {
+    background-color: transparent !important;
+}
+
+.custom-input input:focus-visible {
+    background-color: transparent !important;
+}
+
+.custom-input input:placeholder-shown {
+    background-color: transparent !important;
+}
+
+.custom-input input:required {
+    background-color: transparent !important;
+}
+
+.custom-input input:invalid {
+    background-color: transparent !important;
+}
+
+input {
+    background-color: transparent !important;
+
+}
+
+input:-internal-autofill-selected {
+    appearance: menulist-button;
+    background-image: none !important;
+    background-color: transparent !important;
+    color: transparent !important;
+}
+
+mat-label {
+    background-color: transparent;
+}
