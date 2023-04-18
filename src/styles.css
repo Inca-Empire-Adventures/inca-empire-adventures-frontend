@@ -42,3 +42,20 @@ html {
 .mat-mdc-dialog-container .mdc-dialog__content {
     margin-top: 5px !important;
 }
+
+.mdc-text-field--filled .mdc-line-ripple::after {
+    border-bottom-color: transparent !important;
+}
+
+.mdc-text-field--filled .mdc-line-ripple::before {
+    border-bottom-color: transparent !important;
+}
+
+.mdc-text-field--filled .mdc-line-ripple {
+    border-bottom-color: transparent !important;
+}
+
+.mat-form-field-flex:hover .mat-form-field-outline {
+    opacity: 0;
+    transition: none !important;
+}
