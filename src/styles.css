@@ -40,5 +40,5 @@ html {
 }
 
 .mat-mdc-dialog-container .mdc-dialog__content {
-    margin-top: 20px;
+    margin-top: 5px !important;
 }

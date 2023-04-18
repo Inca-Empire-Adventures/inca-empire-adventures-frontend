@@ -1,25 +1,47 @@
 <h1 mat-dialog-title>Estadísticas </h1>
 <div mat-dialog-content>
-  <p>Carisma: {{statistics.charisma}}</p>
-  <p>Consitución: {{data.constitucion}}</p>
-  <p>Destreza: {{data.dexterity}}</p>
-  <p>Inteligencia: {{data.intelligence}}</p>
-  <p>Fuerza: {{data.strength}}</p>
-  <p>Sabiduría: {{data.wisdom}}</p>
-  <p *ngIf="data.personaje==1  || data.personaje==3">Vida: 250</p>
-  <p *ngIf="data.personaje==2  || data.personaje==4">Vida: 300</p>
-</div>
-<div mat-dialog-actions>
-  <button (click)="onNoClick()">Cerrar</button>
-</div>
+  <div class="detail">
+    <div class="column">
+      <p>Carisma:</p>
+      <p>Consitución:</p>
+      <p>Destreza:</p>
+      <p>Inteligencia:</p>
+      <p>Fuerza:</p>
+      <p>Sabiduría:</p>
+      <p>Vida:</p>
+    </div>
+    <div class="column2">
+      <p>{{statistics.charisma}}</p>
+      <p>{{data.constitucion}}</p>
+      <p>{{data.dexterity}}</p>
+      <p>{{data.intelligence}}</p>
+      <p>{{data.strength}}</p>
+      <p>{{data.wisdom}}</p>
+      <p *ngIf="data.personaje==1  || data.personaje==3">250</p>
+      <p *ngIf="data.personaje==2  || data.personaje==4">300</p>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button (click)="onNoClick()">Cerrar</button>
+  </div>
 
-<style>
-  .custom-dialog-container .mat-dialog-container {
-    text-align: -webkit-center;
-  }
+  <style>
+    .custom-dialog-container .mat-dialog-container {
+      text-align: -webkit-center;
+    }
 
-  p {
-    font-weight: bold;
-    margin: 10px;
-  }
-</style>
+    p {
+      font-weight: bold;
+      margin: 10px;
+      color: var(--mdc-dialog-subhead-color, black);
+    }
+
+    .detail {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: auto;
+      color: white;
+      padding-bottom: 10px;
+    }
+  </style>

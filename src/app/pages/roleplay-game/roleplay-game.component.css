@@ -36,6 +36,7 @@
 
 .op {
     text-align-last: start;
+    text-align: justify;
 }
 
 .box22 {
@@ -289,4 +290,13 @@ input {
 
 .char {
     font-weight: bold;
+}
+
+.container::-webkit-scrollbar {
+    width: 8px;
+    /* Tamaño del scroll en vertical */
+    height: 8px;
+    /* Tamaño del scroll en horizontal */
+    display: none;
+    /* Ocultar scroll */
 }
